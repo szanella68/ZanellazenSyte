@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "Bash(npm start)",
+      "Read(//c/filepubblici/gymtracker/**)",
+      "Bash(del start_all.bat restart_all.bat)",
+      "Bash(node:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd //c:*)",
+      "Bash(npm install:*)",
+      "Bash(dir C:filepubblicigymtracker)",
+      "Read(//c/filepubblici/mia_homepage_alter/**)",
+      "Bash(cmd /c:*)",
+      "Bash(PORT=3005 npm start)",
+      "Bash(grep:*)",
+      "Bash(copy:*)",
+      "Bash(dir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

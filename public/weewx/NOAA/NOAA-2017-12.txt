@@ -1,0 +1,48 @@
+                   MONTHLY CLIMATOLOGICAL SUMMARY for dic 2017
+
+
+NAME: Stazione meteo di Vellai - Feltre                  
+ELEV: 315 meters    LAT: 46-02.10 N    LONG: 011-56.55 E
+
+
+                   TEMPERATURE (C), RAIN (mm), WIND SPEED (m/s)
+
+                                         HEAT   COOL         AVG
+      MEAN                               DEG    DEG          WIND                   DOM
+DAY   TEMP   HIGH   TIME    LOW   TIME   DAYS   DAYS   RAIN  SPEED   HIGH   TIME    DIR
+---------------------------------------------------------------------------------------
+ 01
+ 02
+ 03
+ 04
+ 05
+ 06
+ 07
+ 08
+ 09
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+---------------------------------------------------------------------------------------
+       N/A    N/A       N/A    N/A       N/A    0,0    0,0    N/A    N/A    N/A       N/A    N/A
+    
+

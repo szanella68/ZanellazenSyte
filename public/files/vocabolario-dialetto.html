@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocabolario Dialetto Feltrino - ZanellaZen</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background: #f8fafc;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: #10b981;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .header p {
+      margin: 0.5rem 0 0 0;
+      opacity: 0.9;
+    }
+    .content {
+      padding: 2rem;
+    }
+    .search-box {
+      margin-bottom: 2rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: #10b981;
+    }
+    .vocabulary-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .word-entry {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    .word-entry:hover {
+      background: #f0fdfa;
+      border-color: #10b981;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+    .word-dialect {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #10b981;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .word-italian {
+      font-size: 1.1rem;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+    .word-description {
+      color: #6b7280;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .proverbs-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #e5e7eb;
+    }
+    .proverbs-section h2 {
+      color: #10b981;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .proverb {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .proverb-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0369a1;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .proverb-meaning {
+      color: #374151;
+    }
+    .sequence-section {
+      margin-top: 2rem;
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .sequence-section h3 {
+      color: #92400e;
+      margin-top: 0;
+    }
+    .sequence-step {
+      margin-bottom: 0.75rem;
+      color: #92400e;
+    }
+    .hidden {
+      display: none;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📖 Vocabolario Dialetto Feltrino</h1>
+      <p>Raccolta di parole e tradizioni linguistiche di Feltre</p>
+    </div>
+
+    <div class="content">
+      <a href="../dialetto.html" class="back-link">← Torna alla pagina Dialetto</a>
+
+      <div class="search-box">
+        <input type="text" class="search-input" id="searchInput" placeholder="Cerca una parola nel dialetto feltrino...">
+      </div>
+
+      <div class="vocabulary-grid" id="vocabularyGrid">
+        <div class="word-entry" data-search="amia zia">
+          <div class="word-dialect">Amia</div>
+          <div class="word-italian">→ Zia</div>
+        </div>
+
+        <div class="word-entry" data-search="anda colubro esculapio serpente">
+          <div class="word-dialect">Anda</div>
+          <div class="word-italian">→ Colubro di Esculapio</div>
+          <div class="word-description">Serpente non velenoso comune nelle nostre zone</div>
+        </div>
+
+        <div class="word-entry" data-search="armeron armadio">
+          <div class="word-dialect">Armeron</div>
+          <div class="word-italian">→ Armadio</div>
+        </div>
+
+        <div class="word-entry" data-search="barba zio">
+          <div class="word-dialect">Barba</div>
+          <div class="word-italian">→ Zio</div>
+        </div>
+
+        <div class="word-entry" data-search="barbagigio bagigio arachide">
+          <div class="word-dialect">Barbagigio / Bagigio</div>
+          <div class="word-italian">→ Arachide</div>
+        </div>
+
+        <div class="word-entry" data-search="barc covone coperto">
+          <div class="word-dialect">Barc</div>
+          <div class="word-italian">→ Covone coperto</div>
+        </div>
+
+        <div class="word-entry" data-search="bartenela cardine porta">
+          <div class="word-dialect">Bartenela</div>
+          <div class="word-italian">→ Cardine lato porta</div>
+        </div>
+
+        <div class="word-entry" data-search="betuz pettirosso">
+          <div class="word-dialect">Betuz</div>
+          <div class="word-italian">→ Pettirosso</div>
+        </div>
+
+        <div class="word-entry" data-search="bolsega tosse">
+          <div class="word-dialect">Bolsega</div>
+          <div class="word-italian">→ Tosse</div>
+        </div>
+
+        <div class="word-entry" data-search="bredole betulle">
+          <div class="word-dialect">Bredole</div>
+          <div class="word-italian">→ Betulle</div>
+        </div>
+
+        <div class="word-entry" data-search="brega tavola">
+          <div class="word-dialect">Brega</div>
+          <div class="word-italian">→ Tavola</div>
+        </div>
+
+        <div class="word-entry" data-search="brinthia cestone">
+          <div class="word-dialect">Brinthia</div>
+          <div class="word-italian">→ Cestone</div>
+        </div>
+
+        <div class="word-entry" data-search="britola coltellino ricurvo">
+          <div class="word-dialect">Britola</div>
+          <div class="word-italian">→ Coltellino ricurvo</div>
+        </div>
+
+        <div class="word-entry" data-search="broar lavare piatti concludere">
+          <div class="word-dialect">Broar su</div>
+          <div class="word-italian">→ Lavare i piatti, concludere</div>
+        </div>
+
+        <div class="word-entry" data-search="broia crosta">
+          <div class="word-dialect">Broia</div>
+          <div class="word-italian">→ Crosta</div>
+        </div>
+
+        <div class="word-entry" data-search="brontha brace">
+          <div class="word-dialect">Brontha</div>
+          <div class="word-italian">→ Brace</div>
+        </div>
+
+        <div class="word-entry" data-search="buantha vescica vgelone">
+          <div class="word-dialect">Buantha</div>
+          <div class="word-italian">→ Vescica da vgelone</div>
+        </div>
+
+        <div class="word-entry" data-search="buccole orecchini">
+          <div class="word-dialect">Buccole</div>
+          <div class="word-italian">→ Orecchini</div>
+        </div>
+
+        <div class="word-entry" data-search="canevaza canovaccio">
+          <div class="word-dialect">Canevaza</div>
+          <div class="word-italian">→ Canovaccio</div>
+        </div>
+
+        <div class="word-entry" data-search="caponera pollaio">
+          <div class="word-dialect">Caponera</div>
+          <div class="word-italian">→ Pollaio</div>
+        </div>
+
+        <div class="word-entry" data-search="carbonath saettone">
+          <div class="word-dialect">Carbonath</div>
+          <div class="word-italian">→ Saettone</div>
+        </div>
+
+        <div class="word-entry" data-search="casia acacia">
+          <div class="word-dialect">Casia</div>
+          <div class="word-italian">→ Acacia</div>
+        </div>
+
+        <div class="word-entry" data-search="catha mestolo rame bere">
+          <div class="word-dialect">Catha</div>
+          <div class="word-italian">→ Mestolo di rame per bere</div>
+        </div>
+
+        <div class="word-entry" data-search="cesa chiesa">
+          <div class="word-dialect">Cesa</div>
+          <div class="word-italian">→ Chiesa</div>
+        </div>
+
+        <div class="word-entry" data-search="cioc ubriaco">
+          <div class="word-dialect">Cioc</div>
+          <div class="word-italian">→ Ubriaco</div>
+        </div>
+
+        <div class="word-entry" data-search="ciopa nuca garrese">
+          <div class="word-dialect">Ciopa</div>
+          <div class="word-italian">→ Nuca, garrese</div>
+        </div>
+
+        <div class="word-entry" data-search="ciunga gomma masticare">
+          <div class="word-dialect">Ciunga</div>
+          <div class="word-italian">→ Gomma da masticare</div>
+        </div>
+
+        <div class="word-entry" data-search="cocon tappo legno botte spina">
+          <div class="word-dialect">Cocon</div>
+          <div class="word-italian">→ "Tappo" in legno della botte</div>
+          <div class="word-description">"Se no spande la spina spande el cocon"</div>
+        </div>
+
+        <div class="word-entry" data-search="coder porta pietra affilatrice acqua piera falce">
+          <div class="word-dialect">Coder</div>
+          <div class="word-italian">→ Porta pietra affilatrice e acqua (PIERA) per falce</div>
+        </div>
+
+        <div class="word-entry" data-search="cogoma bricco scaldare caffè">
+          <div class="word-dialect">Cogoma</div>
+          <div class="word-italian">→ Bricco per scaldare caffè</div>
+        </div>
+
+        <div class="word-entry" data-search="combina solco divide granoturco">
+          <div class="word-dialect">Combina</div>
+          <div class="word-italian">→ Solco che divide due file di granoturco</div>
+        </div>
+
+        <div class="word-entry" data-search="comedon gomito">
+          <div class="word-dialect">Comedon</div>
+          <div class="word-italian">→ Gomito</div>
+        </div>
+
+        <div class="word-entry" data-search="coradela lingua esofago fegato cuore polmone macello">
+          <div class="word-dialect">Coradela</div>
+          <div class="word-italian">→ Lingua, esofago, fegato, cuore, polmone dell'animale</div>
+          <div class="word-description">Portato al macello per analisi</div>
+        </div>
+
+        <div class="word-entry" data-search="crepa scodella bere vino">
+          <div class="word-dialect">Crepa</div>
+          <div class="word-italian">→ Scodella per bere vino</div>
+        </div>
+
+        <div class="word-entry" data-search="cripia mangiatoia">
+          <div class="word-dialect">Cripia</div>
+          <div class="word-italian">→ Mangiatoia</div>
+        </div>
+
+        <div class="word-entry" data-search="derman cugino">
+          <div class="word-dialect">Derman</div>
+          <div class="word-italian">→ Cugino</div>
+        </div>
+
+        <div class="word-entry" data-search="diaolin gelone spilli">
+          <div class="word-dialect">Diaolin</div>
+          <div class="word-italian">→ Gelone</div>
+          <div class="word-description">Sensazione di spilli</div>
+        </div>
+
+        <div class="word-entry" data-search="dingio tacchino">
+          <div class="word-dialect">Dingio</div>
+          <div class="word-italian">→ Tacchino</div>
+        </div>
+
+        <div class="word-entry" data-search="dithial ditale">
+          <div class="word-dialect">Dithial</div>
+          <div class="word-italian">→ Ditale</div>
+        </div>
+
+        <div class="word-entry" data-search="doba giovedì">
+          <div class="word-dialect">Doba</div>
+          <div class="word-italian">→ Giovedì</div>
+        </div>
+
+        <div class="word-entry" data-search="doc giogo">
+          <div class="word-dialect">Doc</div>
+          <div class="word-italian">→ Giogo</div>
+        </div>
+
+        <div class="word-entry" data-search="domenega domenica">
+          <div class="word-dialect">Domenega</div>
+          <div class="word-italian">→ Domenica</div>
+        </div>
+
+        <div class="word-entry" data-search="durel gozzo stomaco gallina">
+          <div class="word-dialect">Durel</div>
+          <div class="word-italian">→ Gozzo o stomaco della gallina</div>
+        </div>
+
+        <div class="word-entry" data-search="fastuc filo erba">
+          <div class="word-dialect">Fastuc</div>
+          <div class="word-italian">→ Filo d'erba</div>
+        </div>
+
+        <div class="word-entry" data-search="ferada slitta lame">
+          <div class="word-dialect">Ferada</div>
+          <div class="word-italian">→ Slitta con lame</div>
+        </div>
+
+        <div class="word-entry" data-search="fiapa appassita debole">
+          <div class="word-dialect">Fiapa</div>
+          <div class="word-italian">→ Appassita, debole</div>
+        </div>
+
+        <div class="word-entry" data-search="fien ardiva terzalin fieno tagli">
+          <div class="word-dialect">Fien, Ardiva, Terzalin</div>
+          <div class="word-italian">→ Tre tagli del fieno</div>
+        </div>
+
+        <div class="word-entry" data-search="fievera febbre">
+          <div class="word-dialect">Fievera</div>
+          <div class="word-italian">→ Febbre</div>
+        </div>
+
+        <div class="word-entry" data-search="figadet salsiccia fegato">
+          <div class="word-dialect">Figadet</div>
+          <div class="word-italian">→ Salsiccia con fegato</div>
+        </div>
+
+        <div class="word-entry" data-search="fivithel filetto lingua">
+          <div class="word-dialect">Fivithel</div>
+          <div class="word-italian">→ Filetto della lingua</div>
+        </div>
+
+        <div class="word-entry" data-search="fornela stufa legna">
+          <div class="word-dialect">Fornela</div>
+          <div class="word-italian">→ Stufa a legna</div>
+        </div>
+
+        <div class="word-entry" data-search="freschin odore mucido uova">
+          <div class="word-dialect">Freschin</div>
+          <div class="word-italian">→ Odore di mucido</div>
+          <div class="word-description">Delle uova</div>
+        </div>
+
+        <div class="word-entry" data-search="galeron calabrone">
+          <div class="word-dialect">Galeron</div>
+          <div class="word-italian">→ Calabrone</div>
+        </div>
+
+        <div class="word-entry" data-search="galiotta carrettino sponde letame">
+          <div class="word-dialect">Galiotta</div>
+          <div class="word-italian">→ Carrettino con le sponde</div>
+          <div class="word-description">Per il trasporto del letame</div>
+        </div>
+
+        <div class="word-entry" data-search="gatarigole solletico">
+          <div class="word-dialect">Gatarigole</div>
+          <div class="word-italian">→ Solletico</div>
+        </div>
+
+        <div class="word-entry" data-search="georo gevero lepre">
+          <div class="word-dialect">Georo / Gevero</div>
+          <div class="word-italian">→ Lepre</div>
+        </div>
+
+        <div class="word-entry" data-search="grapa erpice coltelli zolle aratura">
+          <div class="word-dialect">Grapa</div>
+          <div class="word-italian">→ Erpice con coltelli</div>
+          <div class="word-description">Per sminuzzare le zolle dopo l'aratura</div>
+        </div>
+
+        <div class="word-entry" data-search="grapin aratro rovescio diradamento granoturco">
+          <div class="word-dialect">Grapin</div>
+          <div class="word-italian">→ Aratro rovescio</div>
+          <div class="word-description">Per la fase di diradamento del granoturco</div>
+        </div>
+
+        <div class="word-entry" data-search="gualivo piano uniforme">
+          <div class="word-dialect">Gualivo</div>
+          <div class="word-italian">→ Piano, uniforme</div>
+        </div>
+
+        <div class="word-entry" data-search="guarnar accudire mangiare animali mucche">
+          <div class="word-dialect">Guarnar</div>
+          <div class="word-italian">→ Accudire, dare da mangiare agli animali</div>
+          <div class="word-description">Specialmente alle mucche</div>
+        </div>
+
+        <div class="word-entry" data-search="guciaro cuciaro cucchiaio">
+          <div class="word-dialect">Guciaro / Cuciaro</div>
+          <div class="word-italian">→ Cucchiaio</div>
+        </div>
+
+        <div class="word-entry" data-search="gusela usela ago">
+          <div class="word-dialect">Gusela / Usela</div>
+          <div class="word-italian">→ Ago</div>
+        </div>
+
+        <div class="word-entry" data-search="ieia zia">
+          <div class="word-dialect">Ieia</div>
+          <div class="word-italian">→ Zia</div>
+        </div>
+
+        <div class="word-entry" data-search="impiria imbuto">
+          <div class="word-dialect">Impiria</div>
+          <div class="word-italian">→ Imbuto</div>
+        </div>
+
+        <div class="word-entry" data-search="incalmar innesto botanico">
+          <div class="word-dialect">Incalmar</div>
+          <div class="word-italian">→ Fare un innesto botanico</div>
+        </div>
+
+        <div class="word-entry" data-search="indes uovo pollaio deposizione">
+          <div class="word-dialect">Indes</div>
+          <div class="word-italian">→ Uovo che rimane nel pollaio</div>
+          <div class="word-description">Per indicare luogo di deposizione. "Nol cata l'indes"</div>
+        </div>
+
+        <div class="word-entry" data-search="inima pertica scuotere noci noghere">
+          <div class="word-dialect">Inima</div>
+          <div class="word-italian">→ Lunga pertica</div>
+          <div class="word-description">Per scuotere le noci dei rami alti delle noghere</div>
+        </div>
+
+        <div class="word-entry" data-search="larin caminetto">
+          <div class="word-dialect">Larin</div>
+          <div class="word-italian">→ Caminetto</div>
+        </div>
+
+        <div class="word-entry" data-search="lateral comodino">
+          <div class="word-dialect">Lateral</div>
+          <div class="word-italian">→ Comodino</div>
+        </div>
+
+        <div class="word-entry" data-search="lec het voglia">
+          <div class="word-dialect">Lec (Het)</div>
+          <div class="word-italian">→ Voglia</div>
+        </div>
+
+        <div class="word-entry" data-search="lisia bucato cenere">
+          <div class="word-dialect">Lisia</div>
+          <div class="word-italian">→ Fare la... Il bucato</div>
+          <div class="word-description">Con la cenere</div>
+        </div>
+
+        <div class="word-entry" data-search="lora imbuto legno travasare vino sottospina botte">
+          <div class="word-dialect">Lora</div>
+          <div class="word-italian">→ Grande imbuto di legno</div>
+          <div class="word-description">Usato per il travasare del vino dal sottospina alla botte</div>
+        </div>
+
+        <div class="word-entry" data-search="luni lunedì">
+          <div class="word-dialect">Luni</div>
+          <div class="word-italian">→ Lunedì</div>
+        </div>
+
+        <div class="word-entry" data-search="manarin accetta">
+          <div class="word-dialect">Manarin</div>
+          <div class="word-italian">→ Accetta</div>
+        </div>
+
+        <div class="word-entry" data-search="marantega influenza">
+          <div class="word-dialect">Marantega</div>
+          <div class="word-italian">→ Influenza</div>
+        </div>
+
+        <div class="word-entry" data-search="marele semenze cervello">
+          <div class="word-dialect">Marele</div>
+          <div class="word-italian">→ Semenze, cervello</div>
+        </div>
+
+        <div class="word-entry" data-search="marth marcio">
+          <div class="word-dialect">Marth</div>
+          <div class="word-italian">→ Marcio</div>
+        </div>
+
+        <div class="word-entry" data-search="marti martedì">
+          <div class="word-dialect">Marti</div>
+          <div class="word-italian">→ Martedì</div>
+        </div>
+
+        <div class="word-entry" data-search="maruth mucchio fieno">
+          <div class="word-dialect">Maruth</div>
+          <div class="word-italian">→ Mucchio di fieno</div>
+        </div>
+
+        <div class="word-entry" data-search="masiera mucchio sassi aratura">
+          <div class="word-dialect">Masiera</div>
+          <div class="word-italian">→ Mucchio di sassi</div>
+          <div class="word-description">Di solito raccolti dopo aratura</div>
+        </div>
+
+        <div class="word-entry" data-search="mathot mazza">
+          <div class="word-dialect">Mathot</div>
+          <div class="word-italian">→ Mazza</div>
+        </div>
+
+        <div class="word-entry" data-search="meda portoghese medil covone">
+          <div class="word-dialect">Meda (Portoghese), Medil</div>
+          <div class="word-italian">→ Covone</div>
+        </div>
+
+        <div class="word-entry" data-search="menestro mestolo">
+          <div class="word-dialect">Menestro</div>
+          <div class="word-italian">→ Mestolo</div>
+        </div>
+
+        <div class="word-entry" data-search="mercol mercoledì">
+          <div class="word-dialect">Mercol</div>
+          <div class="word-italian">→ Mercoledì</div>
+        </div>
+
+        <div class="word-entry" data-search="misiar mescolare">
+          <div class="word-dialect">Misiar</div>
+          <div class="word-italian">→ Mescolare</div>
+        </div>
+
+        <div class="word-entry" data-search="moia bagnata">
+          <div class="word-dialect">Moia</div>
+          <div class="word-italian">→ Bagnata</div>
+        </div>
+
+        <div class="word-entry" data-search="moia smoia mucchio fieno legna">
+          <div class="word-dialect">Moia / Smoia</div>
+          <div class="word-italian">→ Mucchio di fieno o legna</div>
+        </div>
+
+        <div class="word-entry" data-search="molder mungere">
+          <div class="word-dialect">Molder</div>
+          <div class="word-italian">→ Mungere</div>
+        </div>
+
+        <div class="word-entry" data-search="monega scaldaletto braci bronthe legna">
+          <div class="word-dialect">Monega</div>
+          <div class="word-italian">→ Scaldaletto a braci (bronthe) di legna</div>
+        </div>
+
+        <div class="word-entry" data-search="mostaci baffi">
+          <div class="word-dialect">Mostaci</div>
+          <div class="word-italian">→ Baffi</div>
+        </div>
+
+        <div class="word-entry" data-search="mothol tutolo">
+          <div class="word-dialect">Mothol</div>
+          <div class="word-italian">→ Tutolo</div>
+        </div>
+
+        <div class="word-entry" data-search="mus mulo asino">
+          <div class="word-dialect">Mus</div>
+          <div class="word-italian">→ Mulo (asino)</div>
+        </div>
+
+        <div class="word-entry" data-search="musa slitta">
+          <div class="word-dialect">Musa</div>
+          <div class="word-italian">→ Slitta</div>
+        </div>
+
+        <div class="word-entry" data-search="musal museruola bovini">
+          <div class="word-dialect">Musal</div>
+          <div class="word-italian">→ Museruola per bovini</div>
+        </div>
+
+        <div class="word-entry" data-search="musat asino mulo">
+          <div class="word-dialect">Musat</div>
+          <div class="word-italian">→ Asino o mulo</div>
+        </div>
+
+        <div class="word-entry" data-search="muset cotechino casa">
+          <div class="word-dialect">Muset</div>
+          <div class="word-italian">→ Cotechino (di casa)</div>
+        </div>
+
+        <div class="word-entry" data-search="muset slittino">
+          <div class="word-dialect">Muset</div>
+          <div class="word-italian">→ Slittino</div>
+        </div>
+
+        <div class="word-entry" data-search="musiga talpa">
+          <div class="word-dialect">Musiga</div>
+          <div class="word-italian">→ Talpa</div>
+        </div>
+
+        <div class="word-entry" data-search="musighera mucchio terra talpa">
+          <div class="word-dialect">Musighera</div>
+          <div class="word-italian">→ Mucchio di terra della talpa</div>
+        </div>
+
+        <div class="word-entry" data-search="noghera noce albero">
+          <div class="word-dialect">Noghera</div>
+          <div class="word-italian">→ Noce (l'albero)</div>
+        </div>
+
+        <div class="word-entry" data-search="ocialin dente canino">
+          <div class="word-dialect">Ocialin</div>
+          <div class="word-italian">→ Dente canino</div>
+        </div>
+
+        <div class="word-entry" data-search="olareghe macchie pelle allergia malnutrimento sporco">
+          <div class="word-dialect">Olareghe</div>
+          <div class="word-italian">→ Macchie sulla pelle</div>
+          <div class="word-description">Presumibilmente da allergia, malnutrizione, sporco</div>
+        </div>
+
+        <div class="word-entry" data-search="paluch erba palude">
+          <div class="word-dialect">Paluch</div>
+          <div class="word-italian">→ Erba di palude</div>
+        </div>
+
+        <div class="word-entry" data-search="panigas passero">
+          <div class="word-dialect">Panigas</div>
+          <div class="word-italian">→ Passero</div>
+        </div>
+
+        <div class="word-entry" data-search="parsor trave fieno carro sora corda">
+          <div class="word-dialect">Parsor</div>
+          <div class="word-italian">→ Trave per tenere premuto il fieno sul carro</div>
+          <div class="word-description">Da sopra (par sora), tirato sul lato dalla corda</div>
+        </div>
+
+        <div class="word-entry" data-search="patirloca attrezzo zappa accetta">
+          <div class="word-dialect">Patirloca</div>
+          <div class="word-italian">→ Attrezzo con zappa da un lato e accetta dall'altro</div>
+        </div>
+
+        <div class="word-entry" data-search="patoc completamente marth">
+          <div class="word-dialect">Patoc</div>
+          <div class="word-italian">→ Completamente</div>
+          <div class="word-description">"Marth patoc"</div>
+        </div>
+
+        <div class="word-entry" data-search="persegher albero pesco">
+          <div class="word-dialect">Persegher</div>
+          <div class="word-italian">→ Albero del pesco</div>
+        </div>
+
+        <div class="word-entry" data-search="pianta strumento ravvivare filo falce martello">
+          <div class="word-dialect">Pianta</div>
+          <div class="word-italian">→ Strumento per ravvivare il filo della falce</div>
+          <div class="word-description">Battendo col martello</div>
+        </div>
+
+        <div class="word-entry" data-search="piera pria pietra affilare falce coder">
+          <div class="word-dialect">Piera / Pria</div>
+          <div class="word-italian">→ Pietra per affilare la falce</div>
+          <div class="word-description">Contenuta nel coder</div>
+        </div>
+
+        <div class="word-entry" data-search="piron forchetta">
+          <div class="word-dialect">Piron</div>
+          <div class="word-italian">→ Forchetta</div>
+        </div>
+
+        <div class="word-entry" data-search="pit pulcino">
+          <div class="word-dialect">Pit</div>
+          <div class="word-italian">→ Pulcino</div>
+        </div>
+
+        <div class="word-entry" data-search="pita gallina">
+          <div class="word-dialect">Pita</div>
+          <div class="word-italian">→ Gallina</div>
+        </div>
+
+        <div class="word-entry" data-search="poles cardine muro">
+          <div class="word-dialect">Poles</div>
+          <div class="word-italian">→ Cardine lato muro</div>
+        </div>
+
+        <div class="word-entry" data-search="pos pozzo">
+          <div class="word-dialect">Pos</div>
+          <div class="word-italian">→ Pozzo</div>
+        </div>
+
+        <div class="word-entry" data-search="puliero bue">
+          <div class="word-dialect">Puliero</div>
+          <div class="word-italian">→ Bue</div>
+        </div>
+
+        <div class="word-entry" data-search="puner pollaio">
+          <div class="word-dialect">Puner</div>
+          <div class="word-italian">→ Pollaio</div>
+        </div>
+
+        <div class="word-entry" data-search="querder coprire">
+          <div class="word-dialect">Querder</div>
+          <div class="word-italian">→ Coprire</div>
+        </div>
+
+        <div class="word-entry" data-search="quert tetto">
+          <div class="word-dialect">Quert</div>
+          <div class="word-italian">→ Tetto</div>
+        </div>
+
+        <div class="word-entry" data-search="querta coperta">
+          <div class="word-dialect">Querta</div>
+          <div class="word-italian">→ Coperta</div>
+        </div>
+
+        <div class="word-entry" data-search="raspeghin raseghin prurito gola">
+          <div class="word-dialect">Raspeghin / Raseghin</div>
+          <div class="word-italian">→ Prurito alla gola</div>
+        </div>
+
+        <div class="word-entry" data-search="rebegol persona ferma">
+          <div class="word-dialect">Rebegol</div>
+          <div class="word-italian">→ Avere il... persona che non sta ferma</div>
+        </div>
+
+        <div class="word-entry" data-search="recia orecchio">
+          <div class="word-dialect">Recia</div>
+          <div class="word-italian">→ Orecchio</div>
+        </div>
+
+        <div class="word-entry" data-search="rela riga fieno">
+          <div class="word-dialect">Rela</div>
+          <div class="word-italian">→ Riga di fieno</div>
+        </div>
+
+        <div class="word-entry" data-search="retega persona stressante aggressiva">
+          <div class="word-dialect">Retega</div>
+          <div class="word-italian">→ Persona stressante, aggressiva</div>
+        </div>
+
+        <div class="word-entry" data-search="riscia lisca ciano">
+          <div class="word-dialect">Riscia</div>
+          <div class="word-italian">→ Lisca</div>
+        </div>
+
+        <div class="word-entry" data-search="rochel rocchetto">
+          <div class="word-dialect">Rochel</div>
+          <div class="word-italian">→ Rocchetto</div>
+        </div>
+
+        <div class="word-entry" data-search="ronca accetta ricurva">
+          <div class="word-dialect">Ronca</div>
+          <div class="word-italian">→ Accetta ricurva</div>
+        </div>
+
+        <div class="word-entry" data-search="roro rovere">
+          <div class="word-dialect">Roro</div>
+          <div class="word-italian">→ Rovere</div>
+        </div>
+
+        <div class="word-entry" data-search="rosta ruscello">
+          <div class="word-dialect">Rosta</div>
+          <div class="word-italian">→ Ruscello</div>
+        </div>
+
+        <div class="word-entry" data-search="rusa bruco">
+          <div class="word-dialect">Rusa</div>
+          <div class="word-italian">→ Bruco</div>
+        </div>
+
+        <div class="word-entry" data-search="sabo sabato">
+          <div class="word-dialect">Sabo</div>
+          <div class="word-italian">→ Sabato</div>
+        </div>
+
+        <div class="word-entry" data-search="saca arbusto flessibile">
+          <div class="word-dialect">Saca</div>
+          <div class="word-italian">→ Arbusto flessibile</div>
+        </div>
+
+        <div class="word-entry" data-search="santola madrina">
+          <div class="word-dialect">Santola</div>
+          <div class="word-italian">→ Madrina</div>
+        </div>
+
+        <div class="word-entry" data-search="sapa zappa">
+          <div class="word-dialect">Sapa</div>
+          <div class="word-italian">→ Zappa</div>
+        </div>
+
+        <div class="word-entry" data-search="sapet zappa">
+          <div class="word-dialect">Sapet</div>
+          <div class="word-italian">→ Zappa</div>
+        </div>
+
+        <div class="word-entry" data-search="sarir rimozione piante eccesso diradare">
+          <div class="word-dialect">Sarir</div>
+          <div class="word-italian">→ Rimozione delle piante in eccesso</div>
+          <div class="word-description">Diradare (vedi sequenza attività)</div>
+        </div>
+
+        <div class="word-entry" data-search="sarzhel zappa">
+          <div class="word-dialect">Sarzhel</div>
+          <div class="word-italian">→ Zappa</div>
+        </div>
+
+        <div class="word-entry" data-search="scaiarol strumento falegname levigare">
+          <div class="word-dialect">Scaiarol</div>
+          <div class="word-italian">→ Strumento del falegname per levigare</div>
+        </div>
+
+        <div class="word-entry" data-search="scaldin scaldaletto alluminio acqua calda">
+          <div class="word-dialect">Scaldin</div>
+          <div class="word-italian">→ Scaldaletto in alluminio ad acqua calda</div>
+        </div>
+
+        <div class="word-entry" data-search="scanafoss fosso cunetta">
+          <div class="word-dialect">Scanafoss</div>
+          <div class="word-italian">→ Fosso, cunetta</div>
+        </div>
+
+        <div class="word-entry" data-search="scet sincero cedro">
+          <div class="word-dialect">Scet</div>
+          <div class="word-italian">→ Sincero</div>
+        </div>
+
+        <div class="word-entry" data-search="scagnel schegnel sgabello">
+          <div class="word-dialect">Scagnel / Schegnel</div>
+          <div class="word-italian">→ Sgabello</div>
+        </div>
+
+        <div class="word-entry" data-search="schit guano">
+          <div class="word-dialect">Schit</div>
+          <div class="word-italian">→ Guano</div>
+        </div>
+
+        <div class="word-entry" data-search="sciant poco ciano">
+          <div class="word-dialect">Sciant</div>
+          <div class="word-italian">→ Un poco</div>
+        </div>
+
+        <div class="word-entry" data-search="sciantis lampo">
+          <div class="word-dialect">Sciantis</div>
+          <div class="word-italian">→ Lampo</div>
+        </div>
+
+        <div class="word-entry" data-search="sciap stormo">
+          <div class="word-dialect">Sciap</div>
+          <div class="word-italian">→ Stormo</div>
+        </div>
+
+        <div class="word-entry" data-search="sciapin schiappa">
+          <div class="word-dialect">Sciapin</div>
+          <div class="word-italian">→ Schiappa</div>
+        </div>
+
+        <div class="word-entry" data-search="sciona anello naso orecchino">
+          <div class="word-dialect">Sciona</div>
+          <div class="word-italian">→ Anello al naso, orecchino</div>
+        </div>
+
+        <div class="word-entry" data-search="scios lumaca">
+          <div class="word-dialect">Scios</div>
+          <div class="word-italian">→ Lumaca</div>
+        </div>
+
+        <div class="word-entry" data-search="sciup saliva">
+          <div class="word-dialect">Sciup</div>
+          <div class="word-italian">→ Saliva</div>
+        </div>
+
+        <div class="word-entry" data-search="scoathe immondizie">
+          <div class="word-dialect">Scoathe</div>
+          <div class="word-italian">→ Immondizie</div>
+        </div>
+
+        <div class="word-entry" data-search="scopeton aringa">
+          <div class="word-dialect">Scopeton</div>
+          <div class="word-italian">→ Aringa</div>
+        </div>
+
+        <div class="word-entry" data-search="scorzhet cotechino">
+          <div class="word-dialect">Scorzhet</div>
+          <div class="word-italian">→ Cotechino</div>
+        </div>
+
+        <div class="word-entry" data-search="sculier cucchiaio">
+          <div class="word-dialect">Sculier</div>
+          <div class="word-italian">→ Cucchiaio</div>
+        </div>
+
+        <div class="word-entry" data-search="scus calvo">
+          <div class="word-dialect">Scus</div>
+          <div class="word-italian">→ Calvo</div>
+        </div>
+
+        <div class="word-entry" data-search="sesila rondine">
+          <div class="word-dialect">Sesila</div>
+          <div class="word-italian">→ Rondine</div>
+        </div>
+
+        <div class="word-entry" data-search="sghirlo girafieno mulinello">
+          <div class="word-dialect">Sghirlo</div>
+          <div class="word-italian">→ Girafieno, mulinello</div>
+        </div>
+
+        <div class="word-entry" data-search="sgiorla pezzo guscio">
+          <div class="word-dialect">Sgiorla</div>
+          <div class="word-italian">→ Pezzo di guscio</div>
+        </div>
+
+        <div class="word-entry" data-search="sgnanfar pagnucolare">
+          <div class="word-dialect">Sgnanfar</div>
+          <div class="word-italian">→ Pagnucolare</div>
+        </div>
+
+        <div class="word-entry" data-search="sgreola strumento rumore">
+          <div class="word-dialect">Sgreola</div>
+          <div class="word-italian">→ Strumento per fare rumore</div>
+        </div>
+
+        <div class="word-entry" data-search="sierla falcetto">
+          <div class="word-dialect">Sierla</div>
+          <div class="word-italian">→ Falcetto</div>
+        </div>
+
+        <div class="word-entry" data-search="siraca bestemmia">
+          <div class="word-dialect">Siraca</div>
+          <div class="word-italian">→ Bestemmia</div>
+        </div>
+
+        <div class="word-entry" data-search="slacagn lumaca casa">
+          <div class="word-dialect">Slacagn</div>
+          <div class="word-italian">→ Lumaca senza casa</div>
+        </div>
+
+        <div class="word-entry" data-search="slavazza foglia larga">
+          <div class="word-dialect">Slavazza</div>
+          <div class="word-italian">→ Foglia larga</div>
+        </div>
+
+        <div class="word-entry" data-search="smardel pesa muco">
+          <div class="word-dialect">Smardel, Pesa</div>
+          <div class="word-italian">→ Muco</div>
+        </div>
+
+        <div class="word-entry" data-search="smir grasso">
+          <div class="word-dialect">Smir</div>
+          <div class="word-italian">→ Grasso</div>
+        </div>
+
+        <div class="word-entry" data-search="snare narici">
+          <div class="word-dialect">Snare</div>
+          <div class="word-italian">→ Narici</div>
+        </div>
+
+        <div class="word-entry" data-search="solfa litania straripetuta">
+          <div class="word-dialect">Solfa</div>
+          <div class="word-italian">→ Litania, cosa straripetuta</div>
+        </div>
+
+        <div class="word-entry" data-search="soltharol strumento terra piantine granturco combina">
+          <div class="word-dialect">Soltharol</div>
+          <div class="word-italian">→ Strumento per dare terra alle piantine di granturco</div>
+          <div class="word-description">Da centro della combina verso i lati</div>
+        </div>
+
+        <div class="word-entry" data-search="solva talpa">
+          <div class="word-dialect">Solva</div>
+          <div class="word-italian">→ Talpa</div>
+        </div>
+
+        <div class="word-entry" data-search="sonda lardo maiale">
+          <div class="word-dialect">Sonda</div>
+          <div class="word-italian">→ Lardo del maiale</div>
+        </div>
+
+        <div class="word-entry" data-search="sottospina recipiente basso spinare vino tina">
+          <div class="word-dialect">Sottospina</div>
+          <div class="word-italian">→ Recipiente basso</div>
+          <div class="word-description">Per spinare il vino dalla tina</div>
+        </div>
+
+        <div class="word-entry" data-search="spina tappo botte">
+          <div class="word-dialect">Spina</div>
+          <div class="word-italian">→ "Tappo" della botte</div>
+        </div>
+
+        <div class="word-entry" data-search="spola legno fissare corda">
+          <div class="word-dialect">Spola</div>
+          <div class="word-italian">→ Legno ad 8 per fissare una corda</div>
+        </div>
+
+        <div class="word-entry" data-search="spondoi fungo spond">
+          <div class="word-dialect">Spondoi</div>
+          <div class="word-italian">→ Fungo spond</div>
+        </div>
+
+        <div class="word-entry" data-search="stadere traverse carro">
+          <div class="word-dialect">Stadere</div>
+          <div class="word-italian">→ Traverse del carro</div>
+        </div>
+
+        <div class="word-entry" data-search="starnir cambiare lettiera mucche">
+          <div class="word-dialect">Starnir</div>
+          <div class="word-italian">→ Cambiare lettiera alle mucche</div>
+        </div>
+
+        <div class="word-entry" data-search="stela pezzo legno">
+          <div class="word-dialect">Stela</div>
+          <div class="word-italian">→ Pezzo di legno</div>
+        </div>
+
+        <div class="word-entry" data-search="strac stanco">
+          <div class="word-dialect">Strac</div>
+          <div class="word-italian">→ Stanco</div>
+        </div>
+
+        <div class="word-entry" data-search="stramuson pugno">
+          <div class="word-dialect">Stramuson</div>
+          <div class="word-italian">→ Pugno</div>
+        </div>
+
+        <div class="word-entry" data-search="strasegna rivolo tetto grondaie">
+          <div class="word-dialect">Strasegna</div>
+          <div class="word-italian">→ Rivolo che cade dal tetto</div>
+          <div class="word-description">In mancanza di grondaie</div>
+        </div>
+
+        <div class="word-entry" data-search="stropar tappare">
+          <div class="word-dialect">Stropar</div>
+          <div class="word-italian">→ Tappare</div>
+        </div>
+
+        <div class="word-entry" data-search="stropol tappo">
+          <div class="word-dialect">Stropol</div>
+          <div class="word-italian">→ Tappo</div>
+        </div>
+
+        <div class="word-entry" data-search="stroza erpice fascine spianare cumuli talpe prato">
+          <div class="word-dialect">Stroza</div>
+          <div class="word-italian">→ Erpice a fascine</div>
+          <div class="word-description">Per spianare i cumuli delle talpe e rassettare il prato</div>
+        </div>
+
+        <div class="word-entry" data-search="susta indispettito">
+          <div class="word-dialect">Susta'</div>
+          <div class="word-italian">→ Indispettito</div>
+        </div>
+
+        <div class="word-entry" data-search="sùsta molla">
+          <div class="word-dialect">Sùsta</div>
+          <div class="word-italian">→ Molla</div>
+        </div>
+
+        <div class="word-entry" data-search="talpon pioppo incalme thariese">
+          <div class="word-dialect">Talpon</div>
+          <div class="word-italian">→ Pioppo</div>
+          <div class="word-description">"An talpon, par quant che te l'incalme nol fara' mai thariese"</div>
+        </div>
+
+        <div class="word-entry" data-search="tamai trappola talpe">
+          <div class="word-dialect">Tamai</div>
+          <div class="word-italian">→ Trappola per talpe</div>
+        </div>
+
+        <div class="word-entry" data-search="thanca mano sinistra">
+          <div class="word-dialect">Thanca</div>
+          <div class="word-italian">→ Mano sinistra</div>
+        </div>
+
+        <div class="word-entry" data-search="thariese ciliegie">
+          <div class="word-dialect">Thariese</div>
+          <div class="word-italian">→ Ciliegie</div>
+        </div>
+
+        <div class="word-entry" data-search="thata zampa">
+          <div class="word-dialect">Thata</div>
+          <div class="word-italian">→ Zampa</div>
+        </div>
+
+        <div class="word-entry" data-search="thavattol uccello fringuello">
+          <div class="word-dialect">Thavattol</div>
+          <div class="word-italian">→ Uccello (fringuello?)</div>
+        </div>
+
+        <div class="word-entry" data-search="thendre ceneri">
+          <div class="word-dialect">Thendre</div>
+          <div class="word-italian">→ Ceneri</div>
+        </div>
+
+        <div class="word-entry" data-search="thiera bruta aspetto dimesso">
+          <div class="word-dialect">Thiera</div>
+          <div class="word-italian">→ Brutta... aspetto (dimesso)</div>
+        </div>
+
+        <div class="word-entry" data-search="thiesa cespuglio">
+          <div class="word-dialect">Thiesa</div>
+          <div class="word-italian">→ Cespuglio</div>
+        </div>
+
+        <div class="word-entry" data-search="thigol thigolet spessorino blocca sporge">
+          <div class="word-dialect">Thigol(et)</div>
+          <div class="word-italian">→ Spessorino che blocca o sporge</div>
+        </div>
+
+        <div class="word-entry" data-search="thiligat uccello">
+          <div class="word-dialect">Thiligat</div>
+          <div class="word-italian">→ Uccello</div>
+        </div>
+
+        <div class="word-entry" data-search="thoc tronchetto legno rompere accetta">
+          <div class="word-dialect">Thoc</div>
+          <div class="word-italian">→ Tronchetto di legno</div>
+          <div class="word-description">Per rompere la legna con l'accetta</div>
+        </div>
+
+        <div class="word-entry" data-search="thoca radice tronco sporgente albero tagliato">
+          <div class="word-dialect">Thoca</div>
+          <div class="word-italian">→ Radice + tronco sporgente di albero tagliato</div>
+        </div>
+
+        <div class="word-entry" data-search="thot zoppo">
+          <div class="word-dialect">Thot</div>
+          <div class="word-italian">→ Zoppo</div>
+        </div>
+
+        <div class="word-entry" data-search="tina tinozza">
+          <div class="word-dialect">Tina</div>
+          <div class="word-italian">→ Tinozza</div>
+        </div>
+
+        <div class="word-entry" data-search="tirache bretelle">
+          <div class="word-dialect">Tirache</div>
+          <div class="word-italian">→ Bretelle</div>
+        </div>
+
+        <div class="word-entry" data-search="tocio sugo">
+          <div class="word-dialect">Tocio</div>
+          <div class="word-italian">→ Sugo</div>
+        </div>
+
+        <div class="word-entry" data-search="valc qualcosa bere">
+          <div class="word-dialect">Valc</div>
+          <div class="word-italian">→ Qualcosa</div>
+          <div class="word-description">"Andon a bere valc"</div>
+        </div>
+
+        <div class="word-entry" data-search="varsor aratro">
+          <div class="word-dialect">Varsor</div>
+          <div class="word-italian">→ Aratro</div>
+        </div>
+
+        <div class="word-entry" data-search="vendre venerdì">
+          <div class="word-dialect">Vendre</div>
+          <div class="word-italian">→ Venerdì</div>
+        </div>
+
+        <div class="word-entry" data-search="vendre genero">
+          <div class="word-dialect">Vendre</div>
+          <div class="word-italian">→ Genero</div>
+        </div>
+
+        <div class="word-entry" data-search="vera fede">
+          <div class="word-dialect">Vera</div>
+          <div class="word-italian">→ Fede (anello)</div>
+        </div>
+
+        <div class="word-entry" data-search="vidisoi arbusti rampicanti">
+          <div class="word-dialect">Vidisoi</div>
+          <div class="word-italian">→ Arbusti rampicanti</div>
+        </div>
+
+        <div class="word-entry" data-search="viegol albero duro carpenterie stadere">
+          <div class="word-dialect">Viegol</div>
+          <div class="word-italian">→ Albero molto duro</div>
+          <div class="word-description">Per carpenterie resistenti (stadere)</div>
+        </div>
+
+        <div class="word-entry" data-search="viscia rametto saca frustino ciano">
+          <div class="word-dialect">Viscia</div>
+          <div class="word-italian">→ Rametto come la "saca" ma come un frustino</div>
+        </div>
+      </div>
+
+      <div class="proverbs-section">
+        <h2>💬 Proverbi e Modi di Dire</h2>
+
+        <div class="proverb">
+          <div class="proverb-text">"An col e na busa fa 'n galivo"</div>
+          <div class="proverb-meaning">Un alto e un basso fa un piano</div>
+        </div>
+
+        <div class="proverb">
+          <div class="proverb-text">"An po de quel che se ghe dis"</div>
+          <div class="proverb-meaning">Con un po' di criterio</div>
+        </div>
+
+        <div class="proverb">
+          <div class="proverb-text">"An talpon, par quant che te l'incalme nol fara' mai thariese"</div>
+          <div class="proverb-meaning">Un pioppo, per quanto lo innesti non farà mai ciliegie</div>
+        </div>
+
+        <div class="proverb">
+          <div class="proverb-text">"Se no spande la spina spande el cocon"</div>
+          <div class="proverb-meaning">Se non perde dalla spina perde dal tappo (della botte)</div>
+        </div>
+
+        <div class="proverb">
+          <div class="proverb-text">"Te se fora de na riga de case"</div>
+          <div class="proverb-meaning">Sei fuori da una fila di case (sei strano, diverso)</div>
+        </div>
+
+        <div class="proverb">
+          <div class="proverb-text">"Nol cata l'indes"</div>
+          <div class="proverb-meaning">Persona indecisa o che non trova pace</div>
+        </div>
+
+        <div class="proverb">
+          <div class="proverb-text">"Par San Piero al sorc l'ha da querder el puliero"</div>
+          <div class="proverb-meaning">Per San Pietro il grano deve essere più alto di un bue</div>
+        </div>
+
+        <div class="sequence-section">
+          <h3>🌾 Sequenza Piantaggio Mais</h3>
+          <div class="sequence-step"><strong>COLTAR:</strong> Spargere letame</div>
+          <div class="sequence-step"><strong>ARAR:</strong> Arare col VARSOR</div>
+          <div class="sequence-step"><strong>GRAPAR:</strong> Sminuzzare zolle</div>
+          <div class="sequence-step"><strong>SEMENAR:</strong> Semina</div>
+          <div class="sequence-step"><strong>GRAPINAR COL GRAPIN:</strong> Togliere un po' di terra da vicino alle piantine cumulandola in mezzo alla COMBINA</div>
+          <div class="sequence-step"><strong>SARIR COL SARTHEL:</strong> Togliere erba e piante in eccesso, diradare</div>
+          <div class="sequence-step"><strong>SOLTHAR col SOLTHAROL:</strong> Dare terra, rimettere la terra dal centro della COMBINA verso le piante. Attività da effettuare prima di San Pietro (29 giugno) perché se fatta dopo le piantine sono troppo alte</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const entries = document.querySelectorAll('.word-entry');
+
+      entries.forEach(entry => {
+        const searchData = entry.getAttribute('data-search').toLowerCase();
+        const dialectWord = entry.querySelector('.word-dialect').textContent.toLowerCase();
+        const italianWord = entry.querySelector('.word-italian').textContent.toLowerCase();
+
+        if (searchData.includes(searchTerm) ||
+            dialectWord.includes(searchTerm) ||
+            italianWord.includes(searchTerm)) {
+          entry.classList.remove('hidden');
+        } else {
+          entry.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

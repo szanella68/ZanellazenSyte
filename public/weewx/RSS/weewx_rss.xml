@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" >
+   <channel>
+      <title>Stazione meteo di Vellai - Feltre, Weather Conditions</title>
+      <link></link>
+      <description>Current conditions, and daily, monthly, and yearly summaries</description>
+      <language>en-us</language>
+      <pubDate>mar, 27 ago 2024 12:00:00 CEST</pubDate>
+
+      <lastBuildDate>mar, 27 ago 2024 12:00:00 CEST</lastBuildDate>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+      <generator>weewx 3.7.1</generator>
+      <ttl>60,000000 minutes</ttl>
+      
+      <item>
+         <title>Weather Conditions at 27/08/2024 12:00:00</title>
+         <link></link>
+         <description>
+           Outside temperature: 25,9&#176;C; 
+           Barometer: 991,7 mbar; 
+           Wind: 0,0 m/s from 90&#176;; 
+           Rain rate: 0,0 mm/hr; 
+           Inside temperature: 27,8&#176;C
+         </description>
+         <pubDate>mar, 27 ago 2024 12:00:00 CEST</pubDate>
+	     <geo:lat>46.034974</geo:lat>
+    	 <geo:long>11.942481</geo:long>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Time:                27/08/2024 12:00:00<br/>
+             Outside Temperature: 25,9&#176;C<br/>
+             Inside Temperature:  27,8&#176;C<br/>
+             Wind Chill:          25,8&#176;C<br/>
+             Heat Index:          26,0&#176;C<br/>
+             Dewpoint:            18,1&#176;C<br/>
+             Humidity:            62%<br/>
+             Barometer:           991,7 mbar<br/>
+             Wind:                0,0 m/s from 90&#176;<br/>
+             Rain Rate:           0,0 mm/hr<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Daily Weather Summary as of 27/08/2024 12:00:00</title>
+         <link></link>
+         <description>
+	        Min outside temperature: 16,1&#176;C at 06:37:20;
+         	Max outside temperature: 27,3&#176;C at 11:58:55;
+	        Min inside temperature:  27,7&#176;C at 09:36:36;
+	        Max inside temperature:  30,9&#176;C at 00:01:31;
+	        Min barometer:           991,5 mbar at 11:59:29;
+	        Max barometer:           993,1 mbar at 06:38:56;
+            Max wind :               1,1 m/s from 90&#176; at 11:15:50;
+            Rain today:              0,0 mm
+         </description>
+         <pubDate>mar, 27 ago 2024 12:00:00 CEST</pubDate>
+	     <geo:lat>46.034974</geo:lat>
+    	 <geo:long>11.942481</geo:long>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Day:                     27 ago 2024<br/>
+	         Min Outside Temperature: 16,1&#176;C at 06:37:20<br/>
+	         Max Outside Temperature: 27,3&#176;C at 11:58:55<br/>
+	         Min Inside Temperature:  27,7&#176;C at 09:36:36<br/>
+	         Max Inside Temperature:  30,9&#176;C at 00:01:31<br/>
+	         Min Barometer:           991,5 mbar at 11:59:29<br/>
+	         Max Barometer:           993,1 mbar at 06:38:56<br/>
+             Max Wind :               1,1 m/s from 90&#176; at 11:15:50<br/>
+             Rain today:              0,0 mm<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Monthly Weather Summary as of 27/08/2024 12:00:00</title>
+         <link>/month.html</link>
+         <description>
+	        Min outside temperature: 14,6&#176;C at 08/08/2024 04:38:08;
+         	Max outside temperature: 35,1&#176;C at 12/08/2024 15:26:01;
+	        Min inside temperature:  23,6&#176;C at 20/08/2024 11:00:00;
+	        Max inside temperature:  34,5&#176;C at 12/08/2024 19:51:04;
+	        Min barometer:           990,7 mbar at 12/08/2024 14:54:31;
+	        Max barometer:           993,2 mbar at 08/08/2024 04:17:32;
+            Max wind :               51,1 m/s from 338&#176; at 02/08/2024 14:06:05;
+            Rain total for month:    34,7 mm
+         </description>
+         <pubDate>mar, 27 ago 2024 12:00:00 CEST</pubDate>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Month:                   agosto 2024<br/>
+	         Max Outside Temperature: 35,1&#176;C at 12/08/2024 15:26:01<br/>
+	         Min Outside Temperature: 14,6&#176;C at 08/08/2024 04:38:08<br/>
+	         Max Inside Temperature:  34,5&#176;C at 12/08/2024 19:51:04<br/>
+	         Min Inside Temperature:  23,6&#176;C at 20/08/2024 11:00:00<br/>
+	         Min Barometer:           990,7 mbar at 12/08/2024 14:54:31<br/>
+	         Max Barometer:           993,2 mbar at 08/08/2024 04:17:32<br/>
+             Max Wind :               51,1 m/s from 338&#176; at 02/08/2024 14:06:05<br/>
+             Rain total for month:    34,7 mm<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+      <item>
+         <title>Yearly Weather Summary as of 27/08/2024 12:00:00</title>
+         <link>/year.html</link>
+         <description>
+	        Min outside temperature: -30,0&#176;C at 08/06/2024 10:08:03;
+         	Max outside temperature: 35,1&#176;C at 12/08/2024 15:26:01;
+	        Min inside temperature:  2,7&#176;C at 22/01/2024 10:38:27;
+	        Max inside temperature:  35,7&#176;C at 11/07/2024 20:59:59;
+	        Min barometer:           990,7 mbar at 12/08/2024 14:54:31;
+	        Max barometer:           999,9 mbar at 08/06/2024 10:08:03;
+            Max wind :               51,1 m/s from 338&#176; at 01/01/2024 10:15:34;
+            Rain total for year:     13211,5 mm
+         </description>
+         <pubDate>mar, 27 ago 2024 12:00:00 CEST</pubDate>
+ 		 <content:encoded><![CDATA[
+           <p>
+             Year:                    2024<br/>
+	         Max Outside Temperature: 35,1&#176;C at 12/08/2024 15:26:01<br/>
+	         Min Outside Temperature: -30,0&#176;C at 08/06/2024 10:08:03<br/>
+	         Max Inside Temperature:  35,7&#176;C at 11/07/2024 20:59:59<br/>
+	         Min Inside Temperature:  2,7&#176;C at 22/01/2024 10:38:27<br/>
+	         Min Barometer:           990,7 mbar at 12/08/2024 14:54:31<br/>
+	         Max Barometer:           999,9 mbar at 08/06/2024 10:08:03<br/>
+             Max Wind :               51,1 m/s from 338&#176; at 01/01/2024 10:15:34<br/>
+             Rain total for year:     13211,5 mm<br/>
+        </p>
+      ]]></content:encoded>
+      </item>
+
+   </channel>
+</rss>
+
