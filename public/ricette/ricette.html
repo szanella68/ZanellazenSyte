@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricette - ZanellaZen</title>
+  <meta name="description" content="Ricette tradizionali italiane e piatti della tradizione culinaria di Stefano Zanella">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <div data-include="/components/header.html"></div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="page-header">
+        <h1>🍝 Ricette</h1>
+        <div class="recipes-intro">
+          <p><strong>RICETTE</strong> è la parte del sito dedicata ai miei esperimenti culinari.</p>
+          <p><strong><em>Buon Appetito !!!</em></strong></p>
+        </div>
+        <img src="gallery/RICETTE.jpg" alt="Ricette" class="recipes-hero-image">
+      </div>
+
+      <div class="ricette-grid">
+        <!-- Primi Piatti -->
+        <div class="recipe-category">
+          <h2>🍜 Primi Piatti</h2>
+          <div class="recipe-cards">
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍲</span>
+              </div>
+              <h3>GulaschSuppe</h3>
+              <p>Sostanziosa zuppa austro-ungarica con carne e paprika</p>
+              <button onclick="openRecipeModal('gulaschsuppe')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍝</span>
+              </div>
+              <h3>Pasta all'Amatriciana</h3>
+              <p>Il classico sugo piccante laziale con guanciale e pomodoro</p>
+              <button onclick="openRecipeModal('amatriciana')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍝</span>
+              </div>
+              <h3>Spaghetti alla Carbonara</h3>
+              <p>La vera ricetta romana della carbonara, semplice e perfetta</p>
+              <button onclick="openRecipeModal('carbonara')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍚</span>
+              </div>
+              <h3>Risotto ai Funghi</h3>
+              <p>Cremoso risotto con funghi porcini della tradizione lombarda</p>
+              <button onclick="openRecipeModal('risotto-funghi')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍚</span>
+              </div>
+              <h3>Risotto al Radicchio di Treviso</h3>
+              <p>Elegante risotto veneto con il pregiato radicchio rosso</p>
+              <button onclick="openRecipeModal('risotto-radicchio')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondi di Pesce -->
+        <div class="recipe-category">
+          <h2>🐟 Secondi di Pesce</h2>
+          <div class="recipe-cards">
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🐚</span>
+              </div>
+              <h3>Capesante Gratinate</h3>
+              <p>Elegante antipasto di mare con capesante al forno</p>
+              <button onclick="openRecipeModal('capesante-gratinate')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🐚</span>
+              </div>
+              <h3>Capesante all'Olio</h3>
+              <p>Semplici capesante saltate in padella con aglio e prezzemolo</p>
+              <button onclick="openRecipeModal('capesante-olio')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🐟</span>
+              </div>
+              <h3>Baccalà alla Vicentina</h3>
+              <p>Piatto tradizionale veneto con baccalà mantecato al latte</p>
+              <button onclick="openRecipeModal('baccala-vicentina')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🦐</span>
+              </div>
+              <h3>Mazzancolle al Limone</h3>
+              <p>Fresche mazzancolle saltate con limone e erbe aromatiche</p>
+              <button onclick="openRecipeModal('mazzancolle-limone')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🐙</span>
+              </div>
+              <h3>Seppie in Umido</h3>
+              <p>Saporito secondo di mare della tradizione adriatica</p>
+              <button onclick="openRecipeModal('seppie-umido')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondi di Carne -->
+        <div class="recipe-category">
+          <h2>🥩 Secondi di Carne</h2>
+          <div class="recipe-cards">
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍗</span>
+              </div>
+              <h3>Pollo al Curry</h3>
+              <p>Speziato piatto fusion con pollo e curry cremoso</p>
+              <button onclick="openRecipeModal('pollo-curry')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🥩</span>
+              </div>
+              <h3>Filetto al Pepe Verde</h3>
+              <p>Tenero filetto di manzo con salsa cremosa al pepe verde</p>
+              <button onclick="openRecipeModal('filetto-pepe-verde')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🥩</span>
+              </div>
+              <h3>Filetto alla Wellington</h3>
+              <p>Raffinato piatto inglese con filetto in crosta di pasta sfoglia</p>
+              <button onclick="openRecipeModal('filetto-wellington')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dolci -->
+        <div class="recipe-category">
+          <h2>🍰 Dolci</h2>
+          <div class="recipe-cards">
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍰</span>
+              </div>
+              <h3>Tiramisù</h3>
+              <p>Il re dei dolci italiani, cremoso e profumato al caffè</p>
+              <button onclick="openRecipeModal('tiramisu')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍎</span>
+              </div>
+              <h3>Fritelle di Mele</h3>
+              <p>Dolci fritelle croccanti con mele fresche</p>
+              <button onclick="openRecipeModal('fritelle-mele')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🥧</span>
+              </div>
+              <h3>Crostata di Ricotta</h3>
+              <p>Classica crostata della nonna con ripieno di ricotta</p>
+              <button onclick="openRecipeModal('crostata-ricotta')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-image">
+                <span class="recipe-emoji">🍮</span>
+              </div>
+              <h3>Crema Catalana</h3>
+              <p>Delicata crema spagnola caramellata in superficie</p>
+              <button onclick="openRecipeModal('crema-catalana')" class="recipe-link">Vai alla ricetta →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Recipe Modal -->
+  <div id="recipeModal" class="recipe-modal">
+    <div class="recipe-modal-content">
+      <div class="recipe-modal-header">
+        <h2 id="modalRecipeTitle"></h2>
+        <button class="recipe-modal-close" onclick="closeRecipeModal()">&times;</button>
+      </div>
+      <div id="modalRecipeContent" class="recipe-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/components/footer.html"></div>
+
+  <script src="../js/include.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    // Fix for recipe links - force navigation if blocked
+    document.addEventListener('DOMContentLoaded', function() {
+      const recipeLinks = document.querySelectorAll('.recipe-link');
+      recipeLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && !href.startsWith('#')) {
+            // Force navigation to recipe page
+            window.location.href = href;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

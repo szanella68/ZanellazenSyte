@@ -1,0 +1,10 @@
+{
+  "pathPrefixMap": {
+    "images/": "assets/images/",
+    "img/": "assets/images/",
+    "css/": "assets/css/",
+    "js/": "assets/js/",
+    "/uploads/": "/static/uploads/"
+  }
+}
+

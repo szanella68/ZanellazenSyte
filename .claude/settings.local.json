@@ -18,7 +18,17 @@
       "Bash(PORT=3005 npm start)",
       "Bash(grep:*)",
       "Bash(copy:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(for i in {1..40})",
+      "Bash(do cp \"C:/filepubblici/mia_homepage_alter/gallery/$i_thumb.png\" \"C:/filepubblici/mia_homepage_alter/zanellazen-nodejs/public/images/\")",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(do cp \"C:/filepubblici/mia_homepage_alter/gallery/$i_big.jpg\" \"C:/filepubblici/mia_homepage_alter/zanellazen-nodejs/public/images/\")",
+      "Bash(curl:*)",
+      "Bash(git config:*)",
+      "Bash(git reset:*)",
+      "Bash(git add:*)",
+      "Bash(./sync_zanellazen_git.bat)"
     ],
     "deny": [],
     "ask": []

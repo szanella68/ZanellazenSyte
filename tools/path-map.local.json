@@ -1,0 +1,12 @@
+{
+  "pathPrefixMap": {
+    "home.php": "/",
+    "nautica.html": "/nautica",
+    "meteo.html": "/meteo",
+    "ricette.html": "/ricette",
+    "voci-nel-aria.html": "/radio/voci-nel-aria.html",
+    "meteo-dalla-rete.html": "/meteo/meteo-dalla-rete.html",
+    "dialetto-feltrino.php": "/dialetto/dialetto.html"
+  }
+}
+

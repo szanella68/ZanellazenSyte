@@ -13,10 +13,10 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false
 }));
 
-// Rate limiting
+// Rate limiting - more permissive for development
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  max: 1000, // limit each IP to 1000 requests per windowMs (increased for development)
   message: { error: 'Too many requests, please try again later' }
 });
 app.use(limiter);
@@ -52,24 +52,27 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Route specifiche per le pagine
 app.get('/ricette', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'ricette.html'));
+  res.sendFile(path.join(__dirname, 'public', 'ricette', 'ricette.html'));
 });
 
 app.get('/nautica', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'nautica.html'));
+  res.sendFile(path.join(__dirname, 'public', 'nautica', 'nautica.html'));
 });
 
 app.get('/meteo', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'meteo.html'));
+  res.sendFile(path.join(__dirname, 'public', 'meteo', 'meteo.html'));
 });
 
 app.get('/dialetto', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dialetto.html'));
+  res.sendFile(path.join(__dirname, 'public', 'dialetto', 'dialetto.html'));
 });
 
 app.get('/radio', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'radio.html'));
+  res.sendFile(path.join(__dirname, 'public', 'radio', 'radio.html'));
 });
+
+// Note: Recipe HTML files are served automatically by express.static() from public/
+// No need for explicit routes - this is more efficient and cleaner
 
 // Mantieni blog directory esistente
 app.use('/blog', express.static(path.join(__dirname, '../blog')));

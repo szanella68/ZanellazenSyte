@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nautica - Zanellazen</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Nautica: documenti, appunti e galleria fotografica a tema vela e mare">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#10b981">
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="icon" href="../nautica/gallery/1_thumb.png" type="image/png">
+    <link rel="apple-touch-icon" href="../nautica/gallery/1_thumb.png">
+</head>
+<body>
+    <!-- Header condiviso -->
+    <div data-include="/components/header.html"></div>
+
+    <main class="main-content">
+      <div class="container">
+        <div class="page-header">
+          <h1>⛵ Nautica</h1>
+          <p class="page-subtitle">
+            Appunti, risorse e immagini dal mare. Tecniche, nodi, regolazioni e navigazione.
+          </p>
+          <blockquote class="inspiring-quote" style="margin-top: 1rem;">
+            "E il mare concederà a ogni uomo nuove speranze, come il sonno porta i sogni."
+            <footer>- Cristoforo Colombo, Diario di bordo 1492-93</footer>
+          </blockquote>
+        </div>
+
+        <div class="nautica-grid">
+          <section class="nautica-section">
+            <h2>Documenti e Appunti</h2>
+            <div class="document-list">
+              <a class="document-link" href="files/Timoni-4_A5.pdf" target="_blank" rel="noopener">
+                <div class="document-icon">📄</div>
+                <div class="document-info">
+                  <h3>Perché e quando un timone a vento</h3>
+                  <p>PDF</p>
+                </div>
+              </a>
+              <a class="document-link" href="files/Navigazione-per-Newbies.pdf" target="_blank" rel="noopener">
+                <div class="document-icon">📘</div>
+                <div class="document-info">
+                  <h3>Navigazione per Newbies (Com. S. Zanella)</h3>
+                  <p>PDF</p>
+                </div>
+              </a>
+              <a class="document-link" href="files/nodi.pdf" target="_blank" rel="noopener">
+                <div class="document-icon">🪢</div>
+                <div class="document-info">
+                  <h3>Nodi</h3>
+                  <p>PDF illustrato</p>
+                </div>
+              </a>
+              <a class="document-link" href="files/Vele-e-regolazioni.pdf" target="_blank" rel="noopener">
+                <div class="document-icon">⛵</div>
+                <div class="document-info">
+                  <h3>Vele e regolazioni</h3>
+                  <p>PDF</p>
+                </div>
+              </a>
+              <a class="document-link" href="files/Il-Giorgiolano-2017-2.pdf" target="_blank" rel="noopener">
+                <div class="document-icon">📰</div>
+                <div class="document-info">
+                  <h3>Il Giorgiolano 2017-2</h3>
+                  <p>PDF</p>
+                </div>
+              </a>
+              <a class="document-link" href="files/Come-cavarsela-in-5-mosse-con-vento-forte.docx" target="_blank" rel="noopener">
+                <div class="document-icon">💨</div>
+                <div class="document-info">
+                  <h3>Come cavarsela in 5 mosse con vento forte</h3>
+                  <p>DOCX</p>
+                </div>
+              </a>
+            </div>
+
+            <h2 style="margin-top:2rem">Previsioni Meteo per la Navigazione</h2>
+            <div class="useful-links" style="margin-top:1rem;">
+              <a class="link-card" href="http://www.lamma.rete.toscana.it/modelli/vento-e-mare" target="_blank" rel="noopener">
+                <div class="link-icon">🌬️</div>
+                <div class="link-info">
+                  <h3>LAMMA - Vento e Mare</h3>
+                  <p>Modelli previsionali</p>
+                </div>
+              </a>
+              <a class="link-card" href="http://www.meteoam.it/meteomar/view" target="_blank" rel="noopener">
+                <div class="link-icon">🌊</div>
+                <div class="link-info">
+                  <h3>Meteomar</h3>
+                  <p>Bollettini marini</p>
+                </div>
+              </a>
+              <a class="link-card" href="http://prognoza.hr/karte_e.php?id=aladin" target="_blank" rel="noopener">
+                <div class="link-icon">🗺️</div>
+                <div class="link-info">
+                  <h3>Prognoza HR - Aladin</h3>
+                  <p>Mappe previsionali</p>
+                </div>
+              </a>
+              <a class="link-card" href="https://www.windyty.com/?2016-04-07-09,45.606,12.887,6" target="_blank" rel="noopener">
+                <div class="link-icon">💨</div>
+                <div class="link-info">
+                  <h3>Windyty</h3>
+                  <p>Venti in tempo reale</p>
+                </div>
+              </a>
+              <a class="link-card" href="http://meteo.hr/index.php" target="_blank" rel="noopener">
+                <div class="link-icon">☁️</div>
+                <div class="link-info">
+                  <h3>Meteo HR</h3>
+                  <p>Servizio meteo croato</p>
+                </div>
+              </a>
+              <a class="link-card" href="http://www.brunero.it/ik1qld/pdf/Navtex.pdf" target="_blank" rel="noopener">
+                <div class="link-icon">📡</div>
+                <div class="link-info">
+                  <h3>Navtex Guide</h3>
+                  <p>Manuale radioamatori</p>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <section class="nautica-section">
+            <h2>Galleria Fotografica</h2>
+            <div id="nauticaGallery" class="gallery-container" data-count="40"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer condiviso -->
+    <div data-include="/components/footer.html"></div>
+
+    <script src="../js/include.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

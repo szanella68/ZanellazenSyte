@@ -97,4 +97,11 @@ start_nicola.bat
 apache-config.conf
 !apache-config-example.conf
 
+# Claude Code settings
+.claude/settings.local.json
+
+# Backup and temporary files
+.linkfix/
+APACHE_CONF_DUMP.txt
+
 nul

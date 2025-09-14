@@ -1,0 +1,287 @@
+/* CSS for the weewx Standard skin
+ *
+ *  Copyright (c) 2015 Tom Keffer <tkeffer@gmail.com>
+ * 
+ *  See the file LICENSE.txt for your rights.
+ */
+  
+/* Global */
+
+body {
+    margin: 0;
+    padding: 20px;
+    border: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11pt;
+    background-color: #f8fafc;
+    line-height: 1.4;
+}
+
+#container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/*
+ * This is the big header at the top of the page
+ */
+#masthead {
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+    background: #10b981;
+    color: white;
+}
+
+#masthead h1 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+}
+
+#masthead h2 {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+#masthead h3 {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/*
+ * This holds the statistics (daily high/low, etc.) on the left: 
+ */
+#stats_group {
+    width: 30%;
+    min-height: 500px;
+    margin: 2rem 1rem 1rem 2rem;
+    padding: 1.5rem;
+    float: left;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stats table {
+    border: 1px solid #e5e7eb;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.stats td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem 0.5rem;
+}
+
+.stats_header  {
+    background-color: #10b981;
+    color: white;
+    font-size: 14pt;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: center;
+}
+
+.stats_label {
+    color: #374151;
+    font-weight: 500;
+}
+
+.stats_data {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/*
+ * This holds the "About", "Almanac", and plots on the right
+ */
+#content {
+    width: 62%;
+    min-height: 500px;
+    margin: 2rem 2rem 1rem 1rem;
+    padding: 1.5rem;
+    float: right;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#content .header {
+    font-size: 14pt;
+    font-weight: 600;
+    color: #10b981;
+    margin-bottom: 1rem;
+}
+
+#content .caption {
+    font-weight: 600;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
+#content table {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+#content td {
+    width: 50%;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+#content .label {
+    text-align: right;
+    font-style: italic;
+    background: #f3f4f6;
+    color: #374151;
+}
+
+#content .data {
+    text-align: left;
+    background: white;
+    color: #10b981;
+    font-weight: 500;
+}
+
+#about, #almanac {
+    width: 90%;
+    margin: 0 auto 2rem auto;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.celestial_group {
+}
+
+.celestial_body {
+    width: 48%;
+    vertical-align: top;
+    display:inline-block;
+}
+
+#plots {
+    width: 90%;
+    display: block;
+    margin: 2rem auto;
+}
+
+#plots img {
+    border: 2px solid #10b981;
+    border-radius: 8px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#radar_img {
+    width: 100%;
+    display: block;
+    margin: 2rem auto;
+}
+
+#radar_img img {
+    margin: 0 auto;
+    width: 90%;
+    border: 2px solid #10b981;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#radar_img p {
+    width: 90%;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    body {
+        padding: 10px;
+    }
+
+    #container {
+        border-radius: 8px;
+    }
+
+    #masthead {
+        padding: 1.5rem;
+    }
+
+    #masthead h1 {
+        font-size: 1.5rem;
+    }
+
+    #stats_group, #content {
+        width: 95%;
+        float: none;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    #stats_group {
+        margin-bottom: 1rem;
+    }
+
+    .celestial_body {
+        width: 100%;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    #plots img, #radar_img img {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}
+
+/*
+ * Navigation bar (week, month, etc.) at the bottom
+ */
+#navbar {
+    margin: 0 1% 1% 1%;
+    padding: 5px;
+    text-align: center;
+    clear: both;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #a9a9a9;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #a9a9a9;
+    background-color: #fafaff;
+}
+
+/*************** Global Styles ***************/
+
+h2, h3, h4, h5, h6 {
+    color: #3d6c87;
+}

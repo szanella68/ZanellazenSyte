@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meteo - ZanellaZen</title>
+  <meta name="description" content="Meteo: webcam, dati stazione meteo locale e link utili alle previsioni dalla rete">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div data-include="/components/header.html"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="page-header">
+        <h1>☁️ Meteo</h1>
+        <p class="page-subtitle">Webcam, dati della stazione meteo locale e risorse di previsione</p>
+      </div>
+
+      <section class="nautica-section">
+        <h2>Meteo Locale</h2>
+        <div class="useful-links" style="margin-top:1rem;">
+          <a class="link-card" href="/meteo/weewx/index.html" target="_blank" rel="noopener">
+            <div class="link-icon">📊</div>
+            <div class="link-info">
+              <h3>Dashboard Stazione Meteo</h3>
+              <p>Grafici e dati Weewx (giorno, settimana, mese)</p>
+            </div>
+          </a>
+          <a class="link-card" href="/meteo/webcam-zan.html">
+            <div class="link-icon">📷</div>
+            <div class="link-info">
+              <h3>Webcam Zan</h3>
+              <p>Immagini in diretta/aggiornate</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="nautica-section">
+        <h2>Previsioni dalla Rete</h2>
+        <div class="meteo-links" style="margin-top:1rem;">
+          <a class="meteo-link" href="http://www.lamma.rete.toscana.it/modelli/vento-e-mare" target="_blank" rel="noopener">
+            <div class="meteo-icon">🌬️</div>
+            <div class="meteo-info">
+              <h3>LAMMA - Vento e Mare</h3>
+              <p>Modelli previsionali</p>
+            </div>
+          </a>
+          <a class="meteo-link" href="http://www.meteoam.it/meteomar/view" target="_blank" rel="noopener">
+            <div class="meteo-icon">🌊</div>
+            <div class="meteo-info">
+              <h3>Meteomar</h3>
+              <p>Bollettini marini</p>
+            </div>
+          </a>
+          <a class="meteo-link" href="http://prognoza.hr/karte_e.php?id=aladin" target="_blank" rel="noopener">
+            <div class="meteo-icon">🗺️</div>
+            <div class="meteo-info">
+              <h3>Prognoza HR - Aladin</h3>
+              <p>Mappe previsionali</p>
+            </div>
+          </a>
+          <a class="meteo-link" href="https://www.windyty.com" target="_blank" rel="noopener">
+            <div class="meteo-icon">💨</div>
+            <div class="meteo-info">
+              <h3>Windy</h3>
+              <p>Venti e meteo globale</p>
+            </div>
+          </a>
+          <a class="meteo-link" href="http://meteo.hr/index.php" target="_blank" rel="noopener">
+            <div class="meteo-icon">☁️</div>
+            <div class="meteo-info">
+              <h3>Meteo HR</h3>
+              <p>Servizio meteo croato</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="nautica-section">
+        <h2>Note</h2>
+        <div class="meteo-notes">
+          <div class="note-card">
+            <div class="note-icon">ℹ️</div>
+            <div class="note-content">
+              <h3>Stile unificato</h3>
+              <p>Questa pagina usa lo stile centrale del sito per una migliore coerenza grafica.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div data-include="/components/footer.html"></div>
+  <script src="../js/include.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
+
