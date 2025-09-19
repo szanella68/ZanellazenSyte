@@ -5,7 +5,6 @@ const { PUBLIC_DIR } = require('../config');
 const { listRecipes } = require('../services/recipes');
 
 const router = express.Router();
-const staticMiddleware = express.static(PUBLIC_DIR);
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
@@ -25,6 +24,9 @@ nestedPages.forEach(({ url, file }) => {
   router.get(url, (req, res) => {
     res.sendFile(path.join(PUBLIC_DIR, ...file));
   });
+  router.get(`${url}/`, (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, ...file));
+  });
 });
 
 router.get('/api/recipes', (req, res, next) => {
@@ -34,13 +36,6 @@ router.get('/api/recipes', (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
-
-router.use((req, res, next) => {
-  if (req.path.startsWith('/api/')) {
-    return next();
-  }
-  return staticMiddleware(req, res, next);
 });
 
 module.exports = router;

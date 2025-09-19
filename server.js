@@ -7,6 +7,7 @@ const {
   TRUST_PROXY,
   PUBLIC_DIR,
   BLOG_DIR,
+  APP_VERSION,
 } = require('./config');
 
 const applySecurity = require('./middleware/security');
@@ -22,11 +23,20 @@ if (TRUST_PROXY !== false) {
 
 applySecurity(app);
 
+app.use((req, res, next) => {
+  console.log('[REQ]', req.method, req.originalUrl);
+  res.on('finish', () => {
+    const location = res.get('Location');
+    if (res.statusCode >= 300 && res.statusCode < 400) {
+      console.log('[RES]', res.statusCode, location || '');
+    }
+  });
+  res.setHeader('X-Zanellazen-Version', APP_VERSION);
+  next();
+});
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-const staticRoot = express.static(PUBLIC_DIR);
-app.use(staticRoot);
 
 if (fs.existsSync(BLOG_DIR)) {
   app.use('/blog', express.static(BLOG_DIR));
@@ -34,9 +44,14 @@ if (fs.existsSync(BLOG_DIR)) {
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-app.use('/', pageRoutes);
-app.use('/api', apiRoutes);
 app.use('/zanellazen', zanellazenRoutes);
+app.use('/zanellazen', express.static(PUBLIC_DIR, { redirect: false }));
+app.use('/api', apiRoutes);
+
+app.use('/', pageRoutes);
+
+// Static middleware per CSS, JS e assets accessibili in locale (/)
+app.use(express.static(PUBLIC_DIR, { redirect: false }));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
@@ -52,9 +67,10 @@ app.use((error, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log('========================================');
-  console.log('   🌐 ZanellaZen Homepage Server');
+  console.log('   🌐 ZanellaZen Homepage Server 1');
   console.log('========================================');
   console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`   🔁 Versione: ${APP_VERSION}`);
   console.log(`📱 Homepage: http://localhost:${PORT}/`);
   console.log(`🔗 API Health: http://localhost:${PORT}/api/health`);
   console.log(`🔒 Environment: ${process.env.NODE_ENV || 'development'}`);

@@ -5,7 +5,8 @@ const { PUBLIC_DIR } = require('../config');
 
 const router = express.Router();
 
-const pageRoutes = [
+const pages = [
+  { url: '/', file: ['index.html'] },
   { url: '/ricette', file: ['ricette', 'ricette.html'] },
   { url: '/nautica', file: ['nautica', 'nautica.html'] },
   { url: '/meteo', file: ['meteo', 'meteo.html'] },
@@ -15,8 +16,11 @@ const pageRoutes = [
   { url: '/blog', file: ['blog', 'index.html'] },
 ];
 
-pageRoutes.forEach(({ url, file }) => {
+pages.forEach(({ url, file }) => {
   router.get(url, (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, ...file));
+  });
+  router.get(`${url}/`, (req, res) => {
     res.sendFile(path.join(PUBLIC_DIR, ...file));
   });
 });

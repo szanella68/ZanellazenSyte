@@ -7,7 +7,7 @@ echo   🔄 ZANELLAZEN RESTART: Stop + Start
 echo ================================================
 
 echo [1/2] Arresto ZanellaZen...
-call "%~dp0stop_core.bat"
+call "%~dp0stop_server.bat"
 
 echo.
 echo [2/2] Riavvio ZanellaZen...

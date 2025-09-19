@@ -4,8 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meteo Zan - Stazione Locale</title>
-  <meta name="description" content="Meteo Zan: dettagli sulla stazione meteo personale di Stefano Zanella, sensori, hardware e flusso dati.">
-  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      var path = window.location.pathname || '/';
+      var basePath = path.startsWith('/zanellazen') ? '/zanellazen' : '';
+      window.__zanellazenBasePath = basePath;
+      if (!document.querySelector('link[data-zz-main-style]')) {
+        var prefix = basePath === '' ? '' : basePath;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = prefix + '/css/style.css';
+        link.setAttribute('data-zz-main-style', 'true');
+        document.head.appendChild(link);
+      }
+    })();
+  </script>
+<meta name="description" content="Meteo Zan: dettagli sulla stazione meteo personale di Stefano Zanella, sensori, hardware e flusso dati.">
 </head>
 <body>
   <div data-include="/components/header.html"></div>
@@ -70,9 +84,9 @@
       </section>
 
       <section class="meteo-gallery">
-        <img src="../nautica/gallery/Feltre_Piazza_Maggiore_2.jpg" alt="Panorama Feltre">
-        <img src="../nautica/gallery/feltre3.jpg" alt="Dolomiti Bellunesi">
-        <img src="../nautica/gallery/meteo_station.jpg" alt="Installazione stazione meteo">
+        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-zz-asset="/images/shared/Feltre_Piazza_Maggiore_2.jpg" alt="Panorama Feltre">
+        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-zz-asset="/images/shared/feltre3.jpg" alt="Dolomiti Bellunesi">
+        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-zz-asset="/images/shared/antenna.jpg" alt="Installazione stazione meteo">
       </section>
 
       <section class="note-card" style="margin-top: 2rem;">
@@ -89,8 +103,18 @@
   </main>
 
   <div data-include="/components/footer.html"></div>
-
-  <script src="../js/include.js"></script>
-  <script src="../js/script.js"></script>
+  <script>
+    (function() {
+      var basePath = window.__zanellazenBasePath || (window.location.pathname.startsWith('/zanellazen') ? '/zanellazen' : '');
+      var prefix = basePath === '' ? '' : basePath;
+      ['include.js', 'script.js'].forEach(function(name) {
+        if (document.querySelector('script[data-zz-asset="' + name + '"]')) return;
+        var script = document.createElement('script');
+        script.src = prefix + '/js/' + name;
+        script.setAttribute('data-zz-asset', name);
+        document.head.appendChild(script);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nautica - Zanellazen</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      var path = window.location.pathname || '/';
+      var basePath = path.startsWith('/zanellazen') ? '/zanellazen' : '';
+      window.__zanellazenBasePath = basePath;
+      if (!document.querySelector('link[data-zz-main-style]')) {
+        var prefix = basePath === '' ? '' : basePath;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = prefix + '/css/style.css';
+        link.setAttribute('data-zz-main-style', 'true');
+        document.head.appendChild(link);
+      }
+    })();
+  </script>
     <meta name="description" content="Nautica: documenti, appunti e galleria fotografica a tema vela e mare">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#10b981">
-    <link rel="preload" href="../css/style.css" as="style">
-    <link rel="icon" href="../nautica/gallery/1_thumb.png" type="image/png">
-    <link rel="apple-touch-icon" href="../nautica/gallery/1_thumb.png">
+    <link
+      rel="icon"
+      href="data:image/gif;base64,R0lGODlhAQABAPAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+      data-zz-asset="/nautica/gallery/1_thumb.png"
+      data-zz-attr="href"
+      type="image/png"
+    >
+    <link
+      rel="apple-touch-icon"
+      href="data:image/gif;base64,R0lGODlhAQABAPAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+      data-zz-asset="/nautica/gallery/1_thumb.png"
+      data-zz-attr="href"
+    >
 </head>
 <body>
     <!-- Header condiviso -->
@@ -33,42 +57,42 @@
           <section class="nautica-section">
             <h2>Documenti e Appunti</h2>
             <div class="document-list">
-              <a class="document-link" href="files/Timoni-4_A5.pdf" target="_blank" rel="noopener">
+              <a class="document-link" href="/nautica/files/Timoni-4_A5.pdf" target="_blank" rel="noopener">
                 <div class="document-icon">📄</div>
                 <div class="document-info">
                   <h3>Perché e quando un timone a vento</h3>
                   <p>PDF</p>
                 </div>
               </a>
-              <a class="document-link" href="files/Navigazione-per-Newbies.pdf" target="_blank" rel="noopener">
+              <a class="document-link" href="/nautica/files/Navigazione-per-Newbies.pdf" target="_blank" rel="noopener">
                 <div class="document-icon">📘</div>
                 <div class="document-info">
                   <h3>Navigazione per Newbies (Com. S. Zanella)</h3>
                   <p>PDF</p>
                 </div>
               </a>
-              <a class="document-link" href="files/nodi.pdf" target="_blank" rel="noopener">
+              <a class="document-link" href="/nautica/files/nodi.pdf" target="_blank" rel="noopener">
                 <div class="document-icon">🪢</div>
                 <div class="document-info">
                   <h3>Nodi</h3>
                   <p>PDF illustrato</p>
                 </div>
               </a>
-              <a class="document-link" href="files/Vele-e-regolazioni.pdf" target="_blank" rel="noopener">
+              <a class="document-link" href="/nautica/files/Vele-e-regolazioni.pdf" target="_blank" rel="noopener">
                 <div class="document-icon">⛵</div>
                 <div class="document-info">
                   <h3>Vele e regolazioni</h3>
                   <p>PDF</p>
                 </div>
               </a>
-              <a class="document-link" href="files/Il-Giorgiolano-2017-2.pdf" target="_blank" rel="noopener">
+              <a class="document-link" href="/nautica/files/Il-Giorgiolano-2017-2.pdf" target="_blank" rel="noopener">
                 <div class="document-icon">📰</div>
                 <div class="document-info">
                   <h3>Il Giorgiolano 2017-2</h3>
                   <p>PDF</p>
                 </div>
               </a>
-              <a class="document-link" href="files/Come-cavarsela-in-5-mosse-con-vento-forte.docx" target="_blank" rel="noopener">
+              <a class="document-link" href="/nautica/files/Come-cavarsela-in-5-mosse-con-vento-forte.docx" target="_blank" rel="noopener">
                 <div class="document-icon">💨</div>
                 <div class="document-info">
                   <h3>Come cavarsela in 5 mosse con vento forte</h3>
@@ -134,8 +158,18 @@
 
     <!-- Footer condiviso -->
     <div data-include="/components/footer.html"></div>
-
-    <script src="../js/include.js"></script>
-    <script src="../js/script.js"></script>
+  <script>
+    (function() {
+      var basePath = window.__zanellazenBasePath || (window.location.pathname.startsWith('/zanellazen') ? '/zanellazen' : '');
+      var prefix = basePath === '' ? '' : basePath;
+      ['include.js', 'script.js'].forEach(function(name) {
+        if (document.querySelector('script[data-zz-asset="' + name + '"]')) return;
+        var script = document.createElement('script');
+        script.src = prefix + '/js/' + name;
+        script.setAttribute('data-zz-asset', name);
+        document.head.appendChild(script);
+      });
+    })();
+  </script>
 </body>
 </html>

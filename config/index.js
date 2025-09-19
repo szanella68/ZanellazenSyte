@@ -4,6 +4,8 @@ const ROOT_DIR = path.join(__dirname, '..');
 const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const BLOG_DIR = path.join(ROOT_DIR, '..', 'blog');
 
+const APP_VERSION = process.env.APP_VERSION || '2025-09-19T09:44:58.576980+00:00';
+
 const PORT = parseInt(process.env.PORT, 10) || 3001;
 
 function parseTrustProxy(value) {
@@ -15,7 +17,7 @@ function parseTrustProxy(value) {
   return value;
 }
 
-const TRUST_PROXY = parseTrustProxy(process.env.TRUST_PROXY);
+const TRUST_PROXY = parseTrustProxy(process.env.TRUST_PROXY ?? '1');
 
 function parseList(value, fallback) {
   if (!value) return fallback;
@@ -44,4 +46,5 @@ module.exports = {
   CORS_ORIGINS,
   RATE_LIMIT_WINDOW_MS,
   RATE_LIMIT_MAX_REQUESTS,
+  APP_VERSION,
 };

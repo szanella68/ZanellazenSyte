@@ -4,8 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meteo dalla Rete - ZanellaZen</title>
-  <meta name="description" content="Selezione di link utili per previsioni meteo, vento e mare">
-  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      var path = window.location.pathname || '/';
+      var basePath = path.startsWith('/zanellazen') ? '/zanellazen' : '';
+      window.__zanellazenBasePath = basePath;
+      if (!document.querySelector('link[data-zz-main-style]')) {
+        var prefix = basePath === '' ? '' : basePath;
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = prefix + '/css/style.css';
+        link.setAttribute('data-zz-main-style', 'true');
+        document.head.appendChild(link);
+      }
+    })();
+  </script>
+<meta name="description" content="Selezione di link utili per previsioni meteo, vento e mare">
 </head>
 <body>
   <div data-include="/components/header.html"></div>
@@ -80,8 +94,19 @@
   </main>
 
   <div data-include="/components/footer.html"></div>
-  <script src="../js/include.js"></script>
-  <script src="../js/script.js"></script>
+  <script>
+    (function() {
+      var basePath = window.__zanellazenBasePath || (window.location.pathname.startsWith('/zanellazen') ? '/zanellazen' : '');
+      var prefix = basePath === '' ? '' : basePath;
+      ['include.js', 'script.js'].forEach(function(name) {
+        if (document.querySelector('script[data-zz-asset="' + name + '"]')) return;
+        var script = document.createElement('script');
+        script.src = prefix + '/js/' + name;
+        script.setAttribute('data-zz-asset', name);
+        document.head.appendChild(script);
+      });
+    })();
+  </script>
 </body>
 </html>
 
