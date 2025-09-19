@@ -1,8 +1,7 @@
 @echo on
 setlocal EnableExtensions
 
-rem === PERCORSO ZANELLAZEN ===
-set "ZANELLAZEN_DIR=C:\filepubblici\mia_homepage_alter\zanellazen-nodejs"
+set "ZANELLAZEN_DIR=%~dp0"
 set "ZANELLAZEN_PORT=3001"
 
 cd /d "%ZANELLAZEN_DIR%"

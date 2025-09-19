@@ -1,97 +1,55 @@
 const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
+const fs = require('fs');
 const path = require('path');
 
+const {
+  PORT,
+  TRUST_PROXY,
+  PUBLIC_DIR,
+  BLOG_DIR,
+} = require('./config');
+
+const applySecurity = require('./middleware/security');
+const apiRoutes = require('./routes/api');
+const pageRoutes = require('./routes/pages');
+const zanellazenRoutes = require('./routes/zanellazen');
+
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-// Security middleware
-app.use(helmet({
-  contentSecurityPolicy: false, // Disable for development
-  crossOriginEmbedderPolicy: false
-}));
+if (TRUST_PROXY !== false) {
+  app.set('trust proxy', TRUST_PROXY);
+}
 
-// Rate limiting - more permissive for development
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 1000, // limit each IP to 1000 requests per windowMs (increased for development)
-  message: { error: 'Too many requests, please try again later' }
-});
-app.use(limiter);
+applySecurity(app);
 
-// CORS configuration
-app.use(cors({
-  origin: [
-    'http://localhost:3001',
-    'https://zanserver.sytes.net'
-  ],
-  credentials: true,
-}));
-
-// Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static files - serve frontend from public directory
-app.use(express.static(path.join(__dirname, 'public')));
+const staticRoot = express.static(PUBLIC_DIR);
+app.use(staticRoot);
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    version: '1.0.0',
-    environment: process.env.NODE_ENV || 'development'
-  });
-});
+if (fs.existsSync(BLOG_DIR)) {
+  app.use('/blog', express.static(BLOG_DIR));
+}
 
-// Avoid favicon 404s at root
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-// Route specifiche per le pagine
-app.get('/ricette', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'ricette', 'ricette.html'));
-});
+app.use('/', pageRoutes);
+app.use('/api', apiRoutes);
+app.use('/zanellazen', zanellazenRoutes);
 
-app.get('/nautica', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'nautica', 'nautica.html'));
-});
-
-app.get('/meteo', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'meteo', 'meteo.html'));
-});
-
-app.get('/dialetto', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dialetto', 'dialetto.html'));
-});
-
-app.get('/radio', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'radio', 'radio.html'));
-});
-
-// Note: Recipe HTML files are served automatically by express.static() from public/
-// No need for explicit routes - this is more efficient and cleaner
-
-// Mantieni blog directory esistente
-app.use('/blog', express.static(path.join(__dirname, '../blog')));
-
-// Catch-all route per homepage
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
 });
 
-// Global error handler
 app.use((error, req, res, next) => {
   console.error('Global error handler:', error);
   res.status(error.status || 500).json({
     error: error.message || 'Internal server error',
-    ...(process.env.NODE_ENV === 'development' && { stack: error.stack })
+    ...(process.env.NODE_ENV === 'development' && { stack: error.stack }),
   });
 });
 
-// Start server
 app.listen(PORT, () => {
   console.log('========================================');
   console.log('   🌐 ZanellaZen Homepage Server');
@@ -103,7 +61,6 @@ app.listen(PORT, () => {
   console.log('========================================');
 });
 
-// Graceful shutdown
 process.on('SIGTERM', () => {
   console.log('📴 Shutting down gracefully...');
   process.exit(0);

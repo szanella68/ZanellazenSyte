@@ -28,7 +28,13 @@
       "Bash(git config:*)",
       "Bash(git reset:*)",
       "Bash(git add:*)",
-      "Bash(./sync_zanellazen_git.bat)"
+      "Bash(./sync_zanellazen_git.bat)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(del:*)",
+      "Bash(for file in *.html)",
+      "Bash(do sed -i 's|href=\"\"style/|href=\"\"../style/|g' \"$file\")",
+      "Bash(sed:*)"
     ],
     "deny": [],
     "ask": []

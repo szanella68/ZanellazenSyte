@@ -1,160 +1,57 @@
-# ZanellaZen - Sito Node.js
+# ZanellaZen • Node.js Static Site
 
-Sito personale di Stefano Zanella (IU3FCM) completamente rifatto in Node.js con architettura moderna e CSS centrale.
+Sito personale di Stefano Zanella servito tramite Express. I contenuti sono statici (`public/`), con una piccola API che espone l’elenco delle ricette per frontend o automazioni.
 
-## 🚀 Caratteristiche
+## ✨ Caratteristiche
+- **Stack**: Node.js + Express senza template engine.
+- **Sicurezza**: Helmet, rate limiting e CORS centralizzati, configurabili via `.env`.
+- **Routing pulito**: router dedicati per `/` e `/zanellazen`, in modo da funzionare sia in locale sia dietro Traefik (Hostinger).
+- **Deploy ready**: Dockerfile e documentazione per integrare il servizio nello stesso `docker-compose` di GymTracker.
 
-- **Framework**: Node.js + Express
-- **Template Engine**: EJS
-- **Stile**: CSS centrale personalizzato (nessuna dipendenza esterna)
-- **Struttura**: Modulare e ordinata
-- **Responsive**: Design adattivo per tutti i dispositivi
-- **SEO Friendly**: Meta tag ottimizzati e struttura semantica
-
-## 📁 Struttura del Progetto
-
-```
-zanellazen-nodejs/
-├── src/
-│   ├── app.js              # Server principale
-│   ├── routes/             # Routes per ogni sezione
-│   │   ├── home.js         # Homepage
-│   │   ├── ricette.js      # Sezione ricette
-│   │   ├── nautica.js      # Sezione nautica
-│   │   ├── meteo.js        # Sezione meteorologia
-│   │   └── dialetto.js     # Dialetto feltrino
-│   ├── views/              # Template EJS
-│   │   ├── layouts/        # Layout principali
-│   │   │   └── main.ejs    # Layout base
-│   │   └── pages/          # Pagine specifiche
-│   └── public/             # File statici
-│       ├── css/
-│       │   └── style.css   # CSS centrale
-│       ├── js/
-│       └── images/         # Immagini del sito
-├── package.json
-└── README.md
-```
-
-## ⚙️ Installazione
-
-1. **Clona o scarica il progetto**
-   ```bash
-   cd zanellazen-nodejs
-   ```
-
-2. **Installa le dipendenze**
-   ```bash
-   npm install
-   ```
-
-3. **Avvia il server**
-   ```bash
-   # Modalità sviluppo (con auto-reload)
-   npm run dev
-
-   # Modalità produzione
-   npm start
-   ```
-
-4. **Apri il browser**
-   ```
-   http://localhost:3000
-   ```
-
-## 🎨 CSS Centrale
-
-Il design utilizza un sistema CSS completamente personalizzato con:
-
-- **Reset CSS** per consistenza cross-browser
-- **Grid System** flessibile per layout responsive
-- **Card System** per contenuti modulari
-- **Color Palette** coerente
-- **Typography** ottimizzata per leggibilità
-- **Animations** fluide e discrete
-
-### Classi CSS Principali
-
-```css
-.container    # Container principale centrato
-.card         # Card per contenuti
-.grid         # Sistema grid responsive
-.btn          # Bottoni stilizzati
-.nav          # Navigazione
-```
-
-## 📑 Sezioni del Sito
-
-### 🏠 Homepage
-- Profilo personale di Stefano Zanella
-- Filosofia e interessi
-- Ultime notizie e aggiornamenti
-- Citazione ispiratrice
-- Immagine di Feltre
-
-### 🍝 Ricette
-- Catalogo ricette tradizionali e internazionali
-- Cards con immagini, difficoltà e tempi
-- Ricette dettagliate con ingredienti e procedimento
-
-### ⛵ Nautica
-- Passione per la navigazione
-- Sezioni su vela, sicurezza e meteorologia marina
-- Link utili per navigatori
-
-### 🌤️ Meteorologia
-- Stazioni meteo personali
-- Links a servizi meteorologici
-- Webcam Feltre (offline per manutenzione)
-
-### 🗣️ Dialetto Feltrino
-- Espressioni tipiche feltrino-italiano
-- Tradizioni orali e proverbi
-- Preservazione del patrimonio linguistico
-
-## 🔧 Personalizzazione
-
-### Aggiungere nuove pagine
-1. Crea un file route in `src/routes/`
-2. Crea il template EJS in `src/views/pages/`
-3. Aggiungi la route in `src/app.js`
-4. Aggiorna la navigazione in `src/views/layouts/main.ejs`
-
-### Modificare gli stili
-Tutti gli stili sono centralizzati in `src/public/css/style.css`
-
-### Aggiungere contenuti
-I contenuti sono definiti direttamente nei file route per facilità di gestione.
-
-## 🚀 Deploy
-
-### Server locale
-Il progetto è pronto per essere deployato su qualsiasi server che supporti Node.js.
-
-### Variabili d'ambiente
+## ⚙️ Setup Locale
 ```bash
-PORT=3000  # Porta del server (default: 3000)
+npm install
+
+# Ambiente sviluppo con nodemon
+npm run dev
+
+# Oppure avvio standard
+npm start
 ```
 
-## 🔄 Migrazione da WebSite X5
+Il server ascolta sulla porta `3001` (configurabile). Apri `http://localhost:3001` per la homepage.
 
-Questo progetto sostituisce completamente la versione WebSite X5 con:
+## 🔧 Configurazione
+Le principali variabili (vedi `.env.example`):
 
-- ✅ **Nessuna dipendenza** da software proprietario
-- ✅ **Codice pulito** e mantenibile
-- ✅ **Performance migliorate**
-- ✅ **SEO ottimizzato**
-- ✅ **Design responsive** nativo
-- ✅ **Facilità di aggiornamento**
+```
+PORT=3001
+TRUST_PROXY=1
+CORS_ORIGINS=http://localhost:3001,https://zanserver.sytes.net
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=1000
+```
 
-## 📞 Contatti
+## 📚 Documentazione
+- `STRUCTURE.md`: panoramica delle cartelle e del flusso applicativo.
+- `docs/impostazioni-hostinger.md`: istruzioni per deploy su VPS Hostinger (Docker + Traefik), allineate con GymTracker.
 
-**Stefano Zanella**
-📧 szanella68@gmail.com
-📱 +39 345 1047165
-📍 Via Fusina, 25 - 32032 Feltre BL
-📻 Radioamatore: IU3FCM
+## 🐳 Docker
+```bash
+docker build -t zanellazen .
+docker run --rm -p 3001:3001 --env-file .env zanellazen
+```
 
----
+Il Dockerfile usa Node 18 alpine, installa solo dipendenze production e definisce un healthcheck su `/api/health`.
 
-*"Homo sum, nihil humani a me alienum puto"*
+## 📦 API Principali
+- `GET /api/health` → stato del servizio.
+- `GET /api/recipes` → elenco ricette disponibile sotto `public/ricette/ricette_istruzioni`.
+- Le stesse API sono esposte con prefisso `/zanellazen/api/*` per compatibilità proxy.
+
+## 🛠️ Strumenti utili
+- `tools/inspect-structure.cjs`: genera una mappa della struttura file (usato per diagnosi).
+- `start_zanellazen.bat`, `stop_core.bat`, ecc.: script Windows per esecuzione rapida in locale.
+
+## 📄 Licenza
+MIT

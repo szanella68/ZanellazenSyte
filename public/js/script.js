@@ -1,3 +1,30 @@
+// Base path detection for remote/local access
+function getBasePath() {
+  return window.location.pathname.startsWith('/zanellazen') ? '/zanellazen' : '';
+}
+
+// Fix navigation links on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const basePath = getBasePath();
+  if (basePath) {
+    // Update navigation links
+    document.querySelectorAll('nav a[href^="/"]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href.startsWith('/zanellazen') && href !== '/') {
+        link.setAttribute('href', basePath + href);
+      } else if (href === '/') {
+        link.setAttribute('href', basePath);
+      }
+    });
+
+    // Update brand logo link if exists
+    const brandLink = document.querySelector('.header-brand a, .header-brand h1');
+    if (brandLink && brandLink.tagName === 'A') {
+      brandLink.setAttribute('href', basePath);
+    }
+  }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -54,43 +81,43 @@ async function openRecipeModal(recipeId) {
   const modalTitle = document.getElementById('modalRecipeTitle');
   const modalContent = document.getElementById('modalRecipeContent');
 
-  // Prefer: load original recipe HTML and inject its main content
+  // Dynamic recipe file mapping - use filename as ID
   const recipeFileById = {
     'gulaschsuppe': 'gulaschsuppe.html',
-    'amatriciana': 'pasta-all-amatriciana.html',
-    'carbonara': 'spaghetti-alla-carbonara.html',
-    'risotto-funghi': 'risotto-ai-funghi.html',
-    'risotto-radicchio': 'risotto-al-radicchio-di-treviso.html',
+    'pasta-all-amatriciana': 'pasta-all-amatriciana.html',
+    'spaghetti-alla-carbonara': 'spaghetti-alla-carbonara.html',
+    'risotto-ai-funghi': 'risotto-ai-funghi.html',
+    'risotto-al-radicchio-di-treviso': 'risotto-al-radicchio-di-treviso.html',
     'capesante-gratinate': 'capesante-gratinate.html',
-    'capesante-olio': 'capesante-all-olio.html',
-    'baccala-vicentina': 'baccala-alla-vicentina.html',
-    'mazzancolle-limone': 'mazzancolle-al-limone.html',
-    'seppie-umido': 'seppie-in-umido.html',
-    'pollo-curry': 'pollo-al-curry.html',
-    'filetto-pepe-verde': 'filetto-al-pepe-verde.html',
-    'filetto-wellington': 'filetto-alla-wellington.html',
+    'capesante-all-olio': 'capesante-all-olio.html',
+    'baccala-alla-vicentina': 'baccala-alla-vicentina.html',
+    'mazzancolle-al-limone': 'mazzancolle-al-limone.html',
+    'seppie-in-umido': 'seppie-in-umido.html',
+    'pollo-al-curry': 'pollo-al-curry.html',
+    'filetto-al-pepe-verde': 'filetto-al-pepe-verde.html',
+    'filetto-alla-wellington': 'filetto-alla-wellington.html',
     'tiramisu': 'tiramisu.html',
-    'fritelle-mele': 'fritelle-di-mele.html',
-    'crostata-ricotta': 'crostata-di-ricotta.html',
+    'fritelle-di-mele': 'fritelle-di-mele.html',
+    'crostata-di-ricotta': 'crostata-di-ricotta.html',
     'crema-catalana': 'crema-catalana.html'
   };
   const recipeTitleById = {
     'gulaschsuppe': 'GULASCHSUPPE',
-    'amatriciana': "Pasta all'Amatriciana",
-    'carbonara': 'Spaghetti alla Carbonara',
-    'risotto-funghi': 'Risotto ai Funghi',
-    'risotto-radicchio': 'Risotto al Radicchio di Treviso',
+    'pasta-all-amatriciana': "Pasta all'Amatriciana",
+    'spaghetti-alla-carbonara': 'Spaghetti alla Carbonara',
+    'risotto-ai-funghi': 'Risotto ai Funghi',
+    'risotto-al-radicchio-di-treviso': 'Risotto al Radicchio di Treviso',
     'capesante-gratinate': 'Capesante Gratinate',
-    'capesante-olio': "Capesante all'Olio",
-    'baccala-vicentina': 'Baccalà alla Vicentina',
-    'mazzancolle-limone': 'Mazzancolle al Limone',
-    'seppie-umido': 'Seppie in Umido',
-    'pollo-curry': 'Pollo al Curry',
-    'filetto-pepe-verde': 'Filetto al Pepe Verde',
-    'filetto-wellington': 'Filetto alla Wellington',
+    'capesante-all-olio': "Capesante all'Olio",
+    'baccala-alla-vicentina': 'Baccalà alla Vicentina',
+    'mazzancolle-al-limone': 'Mazzancolle al Limone',
+    'seppie-in-umido': 'Seppie in Umido',
+    'pollo-al-curry': 'Pollo al Curry',
+    'filetto-al-pepe-verde': 'Filetto al Pepe Verde',
+    'filetto-alla-wellington': 'Filetto alla Wellington',
     'tiramisu': 'Tiramisù',
-    'fritelle-mele': 'Frittelle di Mele',
-    'crostata-ricotta': 'Crostata di Ricotta',
+    'fritelle-di-mele': 'Frittelle di Mele',
+    'crostata-di-ricotta': 'Crostata di Ricotta',
     'crema-catalana': 'Crema Catalana'
   };
 
@@ -100,31 +127,45 @@ async function openRecipeModal(recipeId) {
       const resp = await fetch(`/ricette/ricette_istruzioni/${file}`);
       if (resp.ok) {
         const html = await resp.text();
-        const tmp = document.createElement('div');
-        tmp.innerHTML = html;
-        // Heuristic: take the largest .text-inner content block (from original pages)
-        const inners = Array.from(tmp.querySelectorAll('div.text-inner'));
-        let best = null;
-        let bestScore = -1;
-        for (const el of inners) {
-          const score = (el.textContent || '').length + el.querySelectorAll('img').length * 50;
-          if (score > bestScore) { best = el; bestScore = score; }
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        let content = doc.querySelector('[data-recipe-content]');
+        let titleEl = doc.querySelector('[data-recipe-title]');
+
+        if (!content) {
+          const tmp = document.createElement('div');
+          tmp.innerHTML = html;
+          const inners = Array.from(tmp.querySelectorAll('div.text-inner'));
+          let best = null;
+          let bestScore = -1;
+          for (const el of inners) {
+            const score = (el.textContent || '').length + el.querySelectorAll('img').length * 50;
+            if (score > bestScore) { best = el; bestScore = score; }
+          }
+          content = best;
         }
-        if (best) {
-          const content = document.createElement('div');
-          content.innerHTML = best.innerHTML;
-          // Rewrite image src to use ricette/gallery preserving filenames
-          content.querySelectorAll('img').forEach(img => {
+
+        if (!titleEl) {
+          titleEl = doc.querySelector('h1');
+        }
+
+        if (content) {
+          const clone = content.cloneNode(true);
+          clone.querySelectorAll('img').forEach(img => {
             const src = img.getAttribute('src') || '';
+            if (!src) return;
+            if (src.startsWith('http')) return;
             const base = src.split('/').pop();
             if (base) img.setAttribute('src', `/ricette/gallery/${base}`);
           });
-          modalTitle.textContent = recipeTitleById[recipeId] || '';
+
+          modalTitle.textContent = (titleEl && titleEl.textContent.trim()) || recipeTitleById[recipeId] || '';
           modalContent.innerHTML = '';
-          modalContent.appendChild(content);
+          modalContent.appendChild(clone);
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
-          return; // Done with dynamic load
+          return;
         }
       }
     } catch (e) {
